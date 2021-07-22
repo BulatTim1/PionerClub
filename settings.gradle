@@ -1,0 +1,2 @@
+rootProject.name = "Pioner Club"
+include ':app'
