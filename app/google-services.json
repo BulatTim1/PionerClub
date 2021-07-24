@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "980712938087",
+    "project_id": "pionerclub-54483",
+    "storage_bucket": "pionerclub-54483.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980712938087:android:b50f20f0f6c5132d6092c2",
+        "android_client_info": {
+          "package_name": "com.pioner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980712938087-0m6jpvvijavmggkuvs0ghp7me8k6gs8m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBcyCCd0s4sBZserCeJYsEugjcKmsUQvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980712938087-0m6jpvvijavmggkuvs0ghp7me8k6gs8m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
