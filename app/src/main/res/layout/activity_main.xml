@@ -7,8 +7,8 @@
     tools:context=".MainActivity">
 
     <fragment
-        android:id="@+id/ration_fragment"
-        android:name="com.pioner.FragmentRationAddition"
+        android:id="@+id/fragment_entry"
+        android:name="com.pioner.entry"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
