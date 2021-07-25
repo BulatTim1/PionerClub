@@ -61,6 +61,7 @@ class RegFragment : Fragment() {
 //                                                .show()
 //                                        }
 //                                    }
+                            Toast.makeText(context, "Регистрация успешна", Toast.LENGTH_LONG).show()
                             name.text.clear()
                             lastname.text.clear()
                             email.text.clear()
