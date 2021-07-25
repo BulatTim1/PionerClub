@@ -26,7 +26,6 @@ class LoginFragment : Fragment() {
         val pass: EditText = root.findViewById(R.id.log_pass)
         val log: Button = root.findViewById(R.id.log_btn)
         val toReg: Button = root.findViewById(R.id.log_reg)
-//        val bToReg: Button = root.findViewById<Button>(R.id.bRegFLog)
         val auth = FirebaseAuth.getInstance()
         toReg.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment()).commit()

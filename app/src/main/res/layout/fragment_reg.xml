@@ -23,7 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.1"
-            android:autofillHints="lastname" />
+            android:autofillHints="lastname"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/reg_name"
@@ -36,7 +37,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reg_lastname"
-            android:autofillHints="name" />
+            android:autofillHints="name"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/reg_email"
@@ -49,7 +51,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reg_name"
-            android:autofillHints="email" />
+            android:autofillHints="email"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/reg_pass"
@@ -62,16 +65,30 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reg_email"
-            android:autofillHints="password" />
+            android:autofillHints="password"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/reg_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="40dp"
             android:text="Зарегистрироваться"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reg_pass" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_pass"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/reg_log"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Войти"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reg_btn"
+            tools:ignore="HardcodedText" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

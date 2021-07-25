@@ -23,7 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.35"
-            android:autofillHints="email" />
+            android:autofillHints="email"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/log_pass"
@@ -37,17 +38,19 @@
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/log_email"
-            android:autofillHints="password" />
+            android:autofillHints="password"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/log_btn"
             android:layout_width="100dp"
             android:layout_height="50dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="40dp"
             android:text="Войти"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/log_pass" />
+            app:layout_constraintTop_toBottomOf="@+id/log_pass"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/log_reg"
@@ -58,7 +61,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/log_btn" />
+            app:layout_constraintTop_toBottomOf="@+id/log_btn"
+            tools:ignore="HardcodedText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
