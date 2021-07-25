@@ -4,69 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Registration">
+    tools:context=".fragments.RegFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/Fam"
+            android:id="@+id/reg_lastname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="40dp"
             android:ems="10"
             android:hint="Фамилия"
             android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:ems="10"
-            android:hint="Имя"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/Email2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/Email2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textPersonName"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.384" />
+            app:layout_constraintVertical_bias="0.1"
+            android:autofillHints="lastname" />
 
         <EditText
-            android:id="@+id/Password2"
+            android:id="@+id/reg_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Имя"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reg_lastname"
+            android:autofillHints="name" />
+
+        <EditText
+            android:id="@+id/reg_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reg_name"
+            android:autofillHints="email" />
+
+        <EditText
+            android:id="@+id/reg_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPersonName"
+            android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Email2" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_email"
+            android:autofillHints="password" />
 
         <Button
-            android:id="@+id/Reg2"
+            android:id="@+id/reg_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:text="Зарегистрироваться"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Password2" />
+            app:layout_constraintTop_toBottomOf="@+id/reg_pass" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

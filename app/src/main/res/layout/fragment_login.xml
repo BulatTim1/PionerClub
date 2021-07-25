@@ -4,47 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".entry">
-
-    <!-- TODO: Update blank fragment layout -->
+    tools:context=".fragments.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/Email"
+            android:id="@+id/log_email"
             android:layout_width="280dp"
             android:layout_height="50dp"
-            android:layout_marginBottom="25dp"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/Password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/Password"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName"
+            android:inputType="textEmailAddress"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.35"
+            android:autofillHints="email" />
+
+        <EditText
+            android:id="@+id/log_pass"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.503"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/log_email"
+            android:autofillHints="password" />
 
         <Button
-            android:id="@+id/ent"
+            android:id="@+id/log_btn"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
             android:text="Войти"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Password" />
+            app:layout_constraintTop_toBottomOf="@+id/log_pass" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
