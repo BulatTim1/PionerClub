@@ -14,7 +14,7 @@
             android:id="@+id/reg_lastname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
+            android:autofillHints="lastname"
             android:ems="10"
             android:hint="Фамилия"
             android:inputType="textPersonName"
@@ -23,7 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.1"
-            android:autofillHints="lastname"
             tools:ignore="HardcodedText" />
 
         <EditText
