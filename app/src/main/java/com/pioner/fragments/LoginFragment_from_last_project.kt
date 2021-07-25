@@ -1,4 +1,5 @@
 package com.pioner.fragments
+
 //
 //import android.content.Context
 //import android.content.SharedPreferences
@@ -91,6 +92,6 @@ package com.pioner.fragments
 //
 //    fun isEmail(email: EditText?): Boolean {
 //        val value: String = email.getText().toString()
-//        return !value.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(value).matches()
+//        return value.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(value).matches()
 //    }
 //}
