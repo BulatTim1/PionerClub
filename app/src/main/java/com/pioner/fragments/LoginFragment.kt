@@ -1,5 +1,6 @@
 package com.pioner.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -28,9 +29,10 @@ class LoginFragment : Fragment() {
         val toReg: Button = root.findViewById(R.id.log_reg)
         val auth = FirebaseAuth.getInstance()
         toReg.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment()).commit()
+            parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment())
+                .commit()
         }
-        log.setOnClickListener{
+        log.setOnClickListener {
             if (!isEmail(email)) {
                 Toast.makeText(context, "Неправильная почта!", Toast.LENGTH_LONG).show()
             } else {
@@ -38,12 +40,12 @@ class LoginFragment : Fragment() {
                     .addOnCompleteListener(requireActivity()) { task: Task<AuthResult> ->
                         if (task.isSuccessful) {
                             val token: String = task.result!!.user!!.uid
-                            Log.d("Login", "login token: $token")
-//                                requireActivity().getSharedPreferences(
-//                                    "token",
-//                                    Context.MODE_PRIVATE
-//                                )
-//                                    .edit().putString("token", token).apply()
+                            if (token.isNotEmpty()) {
+                                requireActivity().getSharedPreferences(
+                                    "user_pref",
+                                    Context.MODE_PRIVATE
+                                ).edit().putString("uid", token).apply()
+                                Log.d("Login", "login token: $token")
 //                                val user = User()
 //                                try {
 //                                    val map: Map<String, Any> = DBHelper.getDB(context)
@@ -54,9 +56,10 @@ class LoginFragment : Fragment() {
 //                                } catch (e: Exception) {
 //                                    e.printStackTrace()
 //                                }
-                            email.text.clear()
-                            pass.text.clear()
-                            Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
+                                email.text.clear()
+                                pass.text.clear()
+                                Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
+                            }
 //                                parentFragmentManager.beginTransaction()
 //                                    .replace(R.id.login_host, MainFragment()).commit()
                         } else {

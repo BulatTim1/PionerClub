@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "980712938087",
+    "firebase_url": "https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "pionerclub-54483",
     "storage_bucket": "pionerclub-54483.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "980712938087-vao0ino87t1phoacjgqd078agvc7kj8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pioner",
+            "certificate_hash": "f0290cd0896a902d39cbbbb637be90dd6f09ffd4"
+          }
+        },
         {
           "client_id": "980712938087-0m6jpvvijavmggkuvs0ghp7me8k6gs8m.apps.googleusercontent.com",
           "client_type": 3

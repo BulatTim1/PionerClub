@@ -1,5 +1,6 @@
 package com.pioner.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -13,7 +14,11 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.pioner.R
+import com.pioner.User
 
 class RegFragment : Fragment() {
 
@@ -29,6 +34,7 @@ class RegFragment : Fragment() {
         val reg: Button = root.findViewById(R.id.reg_btn)
         val toLog: Button = root.findViewById(R.id.reg_log)
         val auth = FirebaseAuth.getInstance()
+        val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
 
         reg.setOnClickListener {
             if (name.text.isEmpty() || lastname.text.isEmpty()) {
@@ -43,34 +49,37 @@ class RegFragment : Fragment() {
                         requireActivity()
                     ) { task: Task<AuthResult> ->
                         if (task.isSuccessful) {
-                            val token: String = task.result!!.user!!.uid
-                            Log.d("Reg", "postDataToSQLite: $token")
-//                                requireActivity().getSharedPreferences(
-//                                    "token",
-//                                    Context.MODE_PRIVATE
-//                                ).edit()
-//                                    .putString("token", token).apply()
-//                                val db: FirebaseFirestore = FirebaseFirestore.getInstance()
-//                                val doc: MutableMap<String, Any> = DBHelper.getDB()
-//                                doc["username"] = username.getText().toString()
-//                                doc["email"] = email.getText().toString()
-//                                db.collection("users").document(token).set(doc)
-//                                    .addOnCompleteListener { task1 ->
-//                                        if (task1.isSuccessful()) {
-//                                            Toast.makeText(context, "Успешно", Toast.LENGTH_LONG)
-//                                                .show()
-//                                        }
-//                                    }
-                            Toast.makeText(context, "Регистрация успешна", Toast.LENGTH_LONG).show()
-                            name.text.clear()
-                            lastname.text.clear()
-                            email.text.clear()
-                            pass.text.clear()
+                            val uid: String = task.result!!.user!!.uid
+                            if (uid.isNotEmpty()) {
+                                Log.d("Reg", "Reg UID: $uid")
+                                val user = User(email.text.toString(), name.text.toString(), lastname.text.toString())
+                                requireActivity().getSharedPreferences(
+                                    "user_pref",
+                                    Context.MODE_PRIVATE
+                                ).edit().putString("uid", uid).apply()
+                                table.child("users").child(uid).setValue(user).addOnCompleteListener {
+                                    if (it.isSuccessful) {
+                                        Toast.makeText(
+                                            context,
+                                            "Регистрация успешна",
+                                            Toast.LENGTH_LONG
+                                        )
+                                            .show()
+                                        name.text.clear()
+                                        lastname.text.clear()
+                                        email.text.clear()
+                                        pass.text.clear()
+                                    } else {
+                                        Log.e("DB", "DB: ${it.exception}")
+                                    }
+                                }
+
 //                                val fm = parentFragmentManager
 //                                val ft = fm.beginTransaction()
 //                                val fragment = MainFragment()
 //                                ft.replace(R.id.host_fragment, fragment)
 //                                ft.commit()
+                            }
                         } else {
                             Toast.makeText(
                                 context, task.exception!!.localizedMessage,
