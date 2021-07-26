@@ -47,7 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <EditText
-            android:id="@+id/TextPersonNameRation"
+            android:id="@+id/TextPersonСaloriesRation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="128dp"
@@ -74,8 +74,8 @@
             android:layout_marginBottom="8dp"
             android:gravity="center"
             android:text="@string/СaloriesTodayRationString"
-            app:layout_constraintBottom_toTopOf="@+id/TextPersonNameRation"
-            app:layout_constraintStart_toStartOf="@+id/TextPersonNameRation" />
+            app:layout_constraintBottom_toTopOf="@+id/TextPersonСaloriesRation"
+            app:layout_constraintStart_toStartOf="@+id/TextPersonСaloriesRation" />
 
         <EditText
             android:id="@+id/TextPersonHeightRation"
