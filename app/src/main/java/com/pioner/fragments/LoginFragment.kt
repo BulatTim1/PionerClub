@@ -60,8 +60,10 @@ class LoginFragment : Fragment() {
                                 pass.text.clear()
                                 Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
                             }
-//                                parentFragmentManager.beginTransaction()
-//                                    .replace(R.id.login_host, MainFragment()).commit()
+//                            parentFragmentManager.beginTransaction()
+//                                .replace(R.id.login_host, MainFragment()).commit()
+                            parentFragmentManager.beginTransaction()
+                                .replace(R.id.login_host, AddRationFragment()).commit()
                         } else {
                             Toast.makeText(context, "Не удалось войти", Toast.LENGTH_LONG)
                                 .show()
