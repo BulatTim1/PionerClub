@@ -1,6 +1,7 @@
 package com.pioner.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -15,6 +16,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.pioner.R
+
 
 class LoginFragment : Fragment() {
 
@@ -60,6 +62,8 @@ class LoginFragment : Fragment() {
                                 pass.text.clear()
                                 Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
                             }
+                  //          val intent = Intent(this.getActivity(),GeneralActivity::class.java)
+
 //                                parentFragmentManager.beginTransaction()
 //                                    .replace(R.id.login_host, MainFragment()).commit()
                         } else {

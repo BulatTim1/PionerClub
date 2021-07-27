@@ -15,5 +15,4 @@ class User {
         this.name = name
         this.lastname = lastname
     }
-
 }
