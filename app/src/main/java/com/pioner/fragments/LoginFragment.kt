@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.pioner.R
 import com.pioner.UserActivity
 
-
 class LoginFragment : Fragment() {
 
     override fun onCreateView(
@@ -52,7 +51,7 @@ class LoginFragment : Fragment() {
                                 email.text.clear()
                                 pass.text.clear()
                                 Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
-                                startActivity(Intent(activity, GeneralActivity::class.java))
+                                startActivity(Intent(activity, UserActivity::class.java))
                             }
                         } else {
                             Toast.makeText(context, "Не удалось войти", Toast.LENGTH_LONG)
