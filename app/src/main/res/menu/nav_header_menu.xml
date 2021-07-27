@@ -13,4 +13,8 @@
         android:id="@+id/settings"
         android:title="Настройки"
         />
+    <item
+        android:id="@+id/logout"
+        android:title="Выйти"
+        />
 </menu>

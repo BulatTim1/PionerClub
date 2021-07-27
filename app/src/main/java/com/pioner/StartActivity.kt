@@ -7,11 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 
 class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         if (getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "") != "") startActivity(
             Intent(this, UserActivity::class.java)
-        )
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_start)
+        ) else {
+            setContentView(R.layout.activity_start)
+        }
+    }
+
+    override fun onBackPressed() {
     }
 }
 

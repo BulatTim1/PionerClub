@@ -53,10 +53,9 @@ class LoginFragment : Fragment() {
                                 Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
                                 startActivity(Intent(activity, UserActivity::class.java))
                             }
-                        } else {
-                            Toast.makeText(context, "Не удалось войти", Toast.LENGTH_LONG)
-                                .show()
                         }
+                        Toast.makeText(context, "Не удалось войти", Toast.LENGTH_LONG)
+                                .show()
                     }
             }
         }
