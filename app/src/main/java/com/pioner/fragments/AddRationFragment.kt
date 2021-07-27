@@ -27,11 +27,13 @@ class AddRationFragment : Fragment() {
         val сalories: EditText = root.findViewById(R.id.TextPersonСaloriesRation)
         val save_ration: Button = root.findViewById(R.id.SaveRationButton)
         val view_statistic: Button = root.findViewById(R.id.ViewStatisticButton)
+        val TextMass = mass.text.toString()
+        val TextHeight = height.toString()
         val c: Calendar = Calendar.getInstance()
         val month = c.get(Calendar.MONTH).toString()
         val day = c.get(Calendar.DAY_OF_MONTH).toString()
         val year = c.get(Calendar.YEAR).toString()
-        val table: DatabaseReference = Firebase.database.reference
+        val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
 
         save_ration.setOnClickListener {
             val LdtString = year + month + day
@@ -41,7 +43,8 @@ class AddRationFragment : Fragment() {
 //            } else if (LdtInt >) {
 //            Toast.makeText(context, "Вы уже отправляли данные сегодня", Toast.LENGTH_LONG).show()
             } else {
-                val measurement = measurement(mass, height, сalories)
+
+                val measurement = measurement(TextMass, TextHeight, сalories)
                 val uid: String =
                     requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
                         .toString()
@@ -65,6 +68,6 @@ class AddRationFragment : Fragment() {
     }
 }
 
-class measurement(mass: EditText, height: EditText, сalories: EditText) {
+class measurement(var mass: String, var height: String, var сalories: EditText) {
 
 }

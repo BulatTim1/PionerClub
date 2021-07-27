@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.pioner.R
+import com.pioner.UserActivity
 
 
 class LoginFragment : Fragment() {
@@ -48,24 +49,11 @@ class LoginFragment : Fragment() {
                                     Context.MODE_PRIVATE
                                 ).edit().putString("uid", token).apply()
                                 Log.d("Login", "login token: $token")
-//                                val user = User()
-//                                try {
-//                                    val map: Map<String, Any> = DBHelper.getDB(context)
-//                                    user.setName(map["username"].toString())
-//                                    user.setEmail(map["email"].toString())
-//                                    user.setMed(JSONArray(map["med"].toString()))
-//                                    Toast.makeText(context, "Успешно", Toast.LENGTH_LONG).show()
-//                                } catch (e: Exception) {
-//                                    e.printStackTrace()
-//                                }
                                 email.text.clear()
                                 pass.text.clear()
                                 Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
+                                startActivity(Intent(activity, GeneralActivity::class.java))
                             }
-                  //          val intent = Intent(this.getActivity(),GeneralActivity::class.java)
-
-//                                parentFragmentManager.beginTransaction()
-//                                    .replace(R.id.login_host, MainFragment()).commit()
                         } else {
                             Toast.makeText(context, "Не удалось войти", Toast.LENGTH_LONG)
                                 .show()
