@@ -1,6 +1,7 @@
 package com.pioner.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -19,6 +20,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.pioner.R
 import com.pioner.User
+import com.pioner.UserActivity
 
 class RegFragment : Fragment() {
 
@@ -69,8 +71,11 @@ class RegFragment : Fragment() {
                                         lastname.text.clear()
                                         email.text.clear()
                                         pass.text.clear()
+                                        Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
+                                        startActivity(Intent(activity, UserActivity::class.java))
                                     } else {
                                         Log.e("DB", "DB: ${it.exception}")
+                                        Toast.makeText(context, "Ошибка: ${it.exception}", Toast.LENGTH_LONG).show()
                                     }
                                 }
 
