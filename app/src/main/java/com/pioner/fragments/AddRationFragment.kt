@@ -24,11 +24,9 @@ class AddRationFragment : Fragment() {
         val root: View = inflater.inflate(R.layout.fragment_ration_add, container, false)
         val mass: EditText = root.findViewById(R.id.TextPersonMassRation)
         val height: EditText = root.findViewById(R.id.TextPersonHeightRation)
-        val сalories: EditText = root.findViewById(R.id.TextPersonСaloriesRation)
+        val calories: EditText = root.findViewById(R.id.TextPersonСaloriesRation)
         val save_ration: Button = root.findViewById(R.id.SaveRationButton)
         val view_statistic: Button = root.findViewById(R.id.ViewStatisticButton)
-        val TextMass = mass.text.toString()
-        val TextHeight = height.toString()
         val c: Calendar = Calendar.getInstance()
         val month = c.get(Calendar.MONTH).toString()
         val day = c.get(Calendar.DAY_OF_MONTH).toString()
@@ -38,13 +36,13 @@ class AddRationFragment : Fragment() {
         save_ration.setOnClickListener {
             val LdtString = year + month + day
             val LdtInt: Int = LdtString.toInt()
-            if (mass.text.isEmpty() || height.text.isEmpty() || сalories.text.isEmpty()) {
+            if (mass.text.isEmpty() || height.text.isEmpty() || calories.text.isEmpty()) {
                 Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
 //            } else if (LdtInt >) {
 //            Toast.makeText(context, "Вы уже отправляли данные сегодня", Toast.LENGTH_LONG).show()
             } else {
 
-                val measurement = measurement(TextMass, TextHeight, сalories)
+                val measurement = measurement(mass.text.toString(), height.text.toString(), calories.text.toString())
                 val uid: String =
                     requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
                         .toString()
@@ -55,19 +53,18 @@ class AddRationFragment : Fragment() {
                         }
                     mass.text.clear()
                     height.text.clear()
-                    сalories.text.clear()
+                    calories.text.clear()
                 } else {
                     Toast.makeText(context, "Ошибка", Toast.LENGTH_LONG).show()
                 }
             }
         }
         view_statistic.setOnClickListener {
-
         }
         return root
     }
 }
 
-class measurement(var mass: String, var height: String, var сalories: EditText) {
-
+@Suppress("ClassName")
+class measurement(var mass: String?, var height: String?, var calories: String?) {
 }
