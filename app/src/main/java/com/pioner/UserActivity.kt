@@ -7,8 +7,12 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.pioner.databinding.ActivityUserBinding
+import com.pioner.databinding.FragmentRationAddBinding
+import com.pioner.fragments.AddRationFragment
+import com.pioner.fragments.MessengerFragment
 
 class UserActivity : AppCompatActivity() {
 
@@ -26,9 +30,27 @@ class UserActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.messenger -> Toast.makeText(applicationContext, "Вход в мессенджер", Toast.LENGTH_SHORT).show()
-                R.id.ration -> Toast.makeText(applicationContext, "Вход в дневник", Toast.LENGTH_SHORT).show()
-                R.id.settings -> Toast.makeText(applicationContext, "Вход в настройки", Toast.LENGTH_SHORT).show()
+                R.id.messenger -> {
+                    val messenger : MessengerFragment = MessengerFragment()
+                    messenger.arguments = intent.extras
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, messenger).commit()
+                    Toast.makeText(applicationContext, "Вход в мессенджер", Toast.LENGTH_SHORT).show()
+                }
+                R.id.ration -> {
+                    val addration : AddRationFragment = AddRationFragment()
+                    addration.arguments = intent.extras
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, addration).commit()
+                    Toast.makeText(applicationContext, "Вход в дневник", Toast.LENGTH_SHORT).show()
+                }
+                R.id.settings -> {
+                    val settings : AddRationFragment = AddRationFragment()
+                    settings.arguments = intent.extras
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.fragment_container, settings).commit()
+                    Toast.makeText(applicationContext, "Вход в настройки", Toast.LENGTH_SHORT).show()
+                }
                 R.id.logout -> {
                     auth.signOut()
                     getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").apply()

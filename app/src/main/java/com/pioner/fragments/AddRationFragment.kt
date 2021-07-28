@@ -34,15 +34,14 @@ class AddRationFragment : Fragment() {
         val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
 
         save_ration.setOnClickListener {
-            val LdtString = year + month + day
-            val LdtInt: Int = LdtString.toInt()
+            val Ldt = year + month + day
             if (mass.text.isEmpty() || height.text.isEmpty() || calories.text.isEmpty()) {
                 Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
 //            } else if (LdtInt >) {
 //            Toast.makeText(context, "Вы уже отправляли данные сегодня", Toast.LENGTH_LONG).show()
             } else {
 
-                val measurement = measurement(mass.text.toString(), height.text.toString(), calories.text.toString())
+                val measurement = measurement(mass.text.toString().toInt(), height.text.toString().toInt(), calories.text.toString().toInt(), Ldt.toInt())
                 val uid: String =
                     requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
                         .toString()
@@ -66,5 +65,5 @@ class AddRationFragment : Fragment() {
 }
 
 @Suppress("ClassName")
-class measurement(var mass: String?, var height: String?, var calories: String?) {
+class measurement(var mass: Int?, var height: Int?, var calories: Int?, var Ldt: Int?) {
 }
