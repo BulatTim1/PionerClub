@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/messenger"
+        android:title="Мессенджер"
+        />
+    <item
+        android:id="@+id/ration"
+        android:title="Дневник"
+        />
+    <item
+        android:id="@+id/settings"
+        android:title="Настройки"
+        />
+    <item
+        android:id="@+id/logout"
+        android:title="Выйти"
+        />
+</menu>

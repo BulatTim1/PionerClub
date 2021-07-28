@@ -36,7 +36,8 @@ class RegFragment : Fragment() {
         val reg: Button = root.findViewById(R.id.reg_btn)
         val toLog: Button = root.findViewById(R.id.reg_log)
         val auth = FirebaseAuth.getInstance()
-        val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
+        val table: DatabaseReference =
+            Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
 
         reg.setOnClickListener {
             if (name.text.isEmpty() || lastname.text.isEmpty()) {
@@ -54,30 +55,43 @@ class RegFragment : Fragment() {
                             val uid: String = task.result!!.user!!.uid
                             if (uid.isNotEmpty()) {
                                 Log.d("Reg", "Reg UID: $uid")
-                                val user = User(email.text.toString(), name.text.toString(), lastname.text.toString())
+                                val user = User(
+                                    email.text.toString(),
+                                    name.text.toString(),
+                                    lastname.text.toString()
+                                )
                                 requireActivity().getSharedPreferences(
                                     "user_pref",
                                     Context.MODE_PRIVATE
                                 ).edit().putString("uid", uid).apply()
-                                table.child("users").child(uid).setValue(user).addOnCompleteListener {
-                                    if (it.isSuccessful) {
-                                        Toast.makeText(
-                                            context,
-                                            "Регистрация успешна",
-                                            Toast.LENGTH_LONG
-                                        )
-                                            .show()
-                                        name.text.clear()
-                                        lastname.text.clear()
-                                        email.text.clear()
-                                        pass.text.clear()
-                                        Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()
-                                        startActivity(Intent(activity, UserActivity::class.java))
-                                    } else {
-                                        Log.e("DB", "DB: ${it.exception}")
-                                        Toast.makeText(context, "Ошибка: ${it.exception}", Toast.LENGTH_LONG).show()
+                                table.child("users").child(uid).setValue(user)
+                                    .addOnCompleteListener {
+                                        if (it.isSuccessful) {
+                                            Toast.makeText(
+                                                context,
+                                                "Регистрация успешна",
+                                                Toast.LENGTH_LONG
+                                            )
+                                                .show()
+                                            name.text.clear()
+                                            lastname.text.clear()
+                                            email.text.clear()
+                                            pass.text.clear()
+                                            startActivity(
+                                                Intent(
+                                                    activity,
+                                                    UserActivity::class.java
+                                                )
+                                            )
+                                        } else {
+                                            Log.e("DB", "DB: ${it.exception}")
+                                            Toast.makeText(
+                                                context,
+                                                "Ошибка: ${it.exception}",
+                                                Toast.LENGTH_LONG
+                                            ).show()
+                                        }
                                     }
-                                }
 
 //                                val fm = parentFragmentManager
 //                                val ft = fm.beginTransaction()
