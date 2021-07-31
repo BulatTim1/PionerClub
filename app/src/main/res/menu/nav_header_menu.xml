@@ -10,6 +10,14 @@
         android:title="Дневник"
         />
     <item
+        android:id="@+id/exercises"
+        android:title="Упражнения"
+        />
+    <item
+        android:id="@+id/addexercises"
+        android:title="Добавить упражнения"
+        />
+    <item
         android:id="@+id/settings"
         android:title="Настройки"
         />

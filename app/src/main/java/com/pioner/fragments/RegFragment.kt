@@ -112,6 +112,7 @@ class RegFragment : Fragment() {
             parentFragmentManager.beginTransaction().replace(R.id.login_host, LoginFragment())
                 .commit()
         }
+
         return root
     }
 
