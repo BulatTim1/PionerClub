@@ -10,7 +10,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
+<!--        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragmentContainerView"
+            android:name="com.pioner.fragments.MessengerFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout="@layout/fragment_messenger" />-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,13 +40,6 @@
         app:menu="@menu/nav_header_menu"
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
-
-<!--        <fragment-->
-<!--            android:id="@+id/add_ration_fragment"-->
-<!--            android:name="com.pioner.fragments.AddRationFragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent" />-->
-
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -18,7 +18,7 @@ import com.pioner.fragments.MessengerFragment
 
 class UserActivity : AppCompatActivity() {
 
-    lateinit var toggle : ActionBarDrawerToggle
+    private lateinit var toggle : ActionBarDrawerToggle
     private lateinit var binding: ActivityUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +33,8 @@ class UserActivity : AppCompatActivity() {
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.messenger -> {
-                    val messenger : MessengerFragment = MessengerFragment()
-                    messenger.arguments = intent.extras
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, messenger).commit()
+                    supportFragmentManager.beginTransaction().replace(R.id.login_host, MessengerFragment())
+                    .commit()
                     Toast.makeText(applicationContext, "Вход в мессенджер", Toast.LENGTH_SHORT).show()
                 }
                 R.id.ration -> {
