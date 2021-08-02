@@ -40,7 +40,6 @@ class AddRationFragment : Fragment() {
 //            } else if (LdtInt >) {
 //            Toast.makeText(context, "Вы уже отправляли данные сегодня", Toast.LENGTH_LONG).show()
             } else {
-
                 val measurement = measurement(mass.text.toString().toInt(), height.text.toString().toInt(), calories.text.toString().toInt(), Ldt.toInt())
                 val uid: String =
                     requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
