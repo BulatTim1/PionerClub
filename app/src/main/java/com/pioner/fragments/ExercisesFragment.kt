@@ -6,15 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pioner.R
-
-
-class MessengerFragment : Fragment() {
-
+class ExercisesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_messenger, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_exercises, container, false)
     }
 }

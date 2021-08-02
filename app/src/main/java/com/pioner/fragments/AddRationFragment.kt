@@ -27,8 +27,6 @@ class AddRationFragment : Fragment() {
         val calories: EditText = root.findViewById(R.id.TextPersonСaloriesRation)
         val saveRation: Button = root.findViewById(R.id.SaveRationButton)
         val viewStatistic: Button = root.findViewById(R.id.ViewStatisticButton)
-        val textMass = mass.text.toString()
-        val textHeight = height.toString()
         val c: Calendar = Calendar.getInstance()
         val month = c.get(Calendar.MONTH).toString()
         val day = c.get(Calendar.DAY_OF_MONTH).toString()
@@ -36,15 +34,13 @@ class AddRationFragment : Fragment() {
         val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
 
         saveRation.setOnClickListener {
-            val ldtString = year + month + day
-            val ldtInt: Int = ldtString.toInt()
+            val ldt = year + month + day
             if (mass.text.isEmpty() || height.text.isEmpty() || calories.text.isEmpty()) {
                 Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
 //            } else if (LdtInt >) {
 //            Toast.makeText(context, "Вы уже отправляли данные сегодня", Toast.LENGTH_LONG).show()
             } else {
-
-                val measurement = Measurement(textMass, textHeight, calories)
+                val measurement = Measurement(mass.text.toString().toInt(), height.text.toString().toInt(), calories.text.toString().toInt(), ldt.toInt())
                 val uid: String =
                     requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
                         .toString()
@@ -62,10 +58,11 @@ class AddRationFragment : Fragment() {
             }
         }
         viewStatistic.setOnClickListener {
-
         }
         return root
     }
 }
 
-class Measurement(var mass: String, var height: String, var calories: EditText)
+
+class Measurement(var mass: Int?, var height: Int?, var calories: Int?, var Ldt: Int?) {
+}
