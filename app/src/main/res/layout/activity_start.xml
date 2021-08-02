@@ -16,9 +16,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout="@layout/fragment_login" />
-<!--    <fragment-->
-<!--        android:id="@+id/cat_fragment"-->
-<!--        android:name="com.pioner.fragments.AddRationFragment"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent" />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
