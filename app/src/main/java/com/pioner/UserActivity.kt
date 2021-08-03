@@ -39,6 +39,7 @@ class UserActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment())
                         .commit()
                     Toast.makeText(applicationContext, "Вход в дневник", Toast.LENGTH_SHORT).show()
+
                 }
                 R.id.settings -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment())
