@@ -40,7 +40,7 @@ class ExercisesAddFragment : Fragment() {
                         .getString("uid", "")
                         .toString()
                 if (uid != "") {
-                    table.child("exercises").child(uid).push()
+                    table.child("exercises").push()
                         .setValue(exercises).addOnSuccessListener {
                             Toast.makeText(context, "Данные внесены", Toast.LENGTH_LONG).show()
                         }
