@@ -67,6 +67,17 @@
             android:autofillHints="password"
             tools:ignore="HardcodedText" />
 
+        <Spinner
+            android:id="@+id/trenner_choose"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="64dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reg_pass" />
+
         <Button
             android:id="@+id/reg_btn"
             android:layout_width="wrap_content"
@@ -75,7 +86,7 @@
             android:text="Зарегистрироваться"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reg_pass"
+            app:layout_constraintTop_toBottomOf="@+id/trenner_choose"
             tools:ignore="HardcodedText" />
 
         <Button
@@ -89,5 +100,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/reg_btn"
             tools:ignore="HardcodedText" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
