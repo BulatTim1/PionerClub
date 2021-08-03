@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.pioner.MeasurementClass
 import com.pioner.R
 import java.util.*
 
@@ -28,41 +29,51 @@ class AddRationFragment : Fragment() {
         val saveRation: Button = root.findViewById(R.id.SaveRationButton)
         val viewStatistic: Button = root.findViewById(R.id.ViewStatisticButton)
         val c: Calendar = Calendar.getInstance()
-        val month = c.get(Calendar.MONTH).toString()
-        val day = c.get(Calendar.DAY_OF_MONTH).toString()
+        var month = c.get(Calendar.MONTH).toString()
+        var day = c.get(Calendar.DAY_OF_MONTH).toString()
         val year = c.get(Calendar.YEAR).toString()
-        val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
+        val table: DatabaseReference =
+            Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
 
         saveRation.setOnClickListener {
-            val ldt = year + month + day
-            if (mass.text.isEmpty() || height.text.isEmpty() || calories.text.isEmpty()) {
-                Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
+            if (month.toInt() < 10) {
+                month = "0$month"
+            }
+            if (day.toInt() < 10) {
+                day = "0$day"
+            }
+            saveRation.setOnClickListener {
+                val ldt = "$day/$month/$year"
+                if (mass.text.isEmpty() || height.text.isEmpty() || calories.text.isEmpty()) {
+                    Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
 //            } else if (LdtInt >) {
 //            Toast.makeText(context, "Вы уже отправляли данные сегодня", Toast.LENGTH_LONG).show()
-            } else {
-                val measurement = Measurement(mass.text.toString().toInt(), height.text.toString().toInt(), calories.text.toString().toInt(), ldt.toInt())
-                val uid: String =
-                    requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
-                        .toString()
-                if (uid != "") {
-                    table.child("users").child(uid).child("measurements").push()
-                        .setValue(measurement).addOnSuccessListener {
-                            Toast.makeText(context, "Данные внесены", Toast.LENGTH_LONG).show()
-                        }
-                    mass.text.clear()
-                    height.text.clear()
-                    calories.text.clear()
                 } else {
-                    Toast.makeText(context, "Ошибка", Toast.LENGTH_LONG).show()
+                    val measurement = MeasurementClass( mass.text.toString().toInt(),  height.text.toString().toInt(),  calories.text.toString().toInt(), ldt )
+                    val uid: String =
+                        requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                            .getString("uid", "")
+                            .toString()
+                    if (uid != "") {
+                        table.child("users").child(uid).child("measurements").push()
+                            .setValue(measurement).addOnSuccessListener {
+                                Toast.makeText(context, "Данные внесены", Toast.LENGTH_LONG).show()
+                            }
+                        mass.text.clear()
+                        height.text.clear()
+                        calories.text.clear()
+                    } else {
+                        Toast.makeText(context, "Ошибка", Toast.LENGTH_LONG).show()
+                    }
                 }
             }
-        }
-        viewStatistic.setOnClickListener {
+            viewStatistic.setOnClickListener {
+//                supportFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).commit()
+                parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).commit()
+//                transaction.replace(R.id.fragment_container, fragment);
+            }
         }
         return root
     }
 }
 
-
-class Measurement(var mass: Int?, var height: Int?, var calories: Int?, var Ldt: Int?) {
-}

@@ -3,4 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.StatisticRationFragment"/>
+    tools:context=".fragments.StatisticRationFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/statictic_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.RecyclerViewActivity"
+        tools:listitem="@layout/frame_measurement">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</FrameLayout>

@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ExercisesAdapter(private val exerciseslist : ArrayList<Exercises>) : RecyclerView.Adapter<ExercisesAdapter.MyViewHolder>() {
+class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>) : RecyclerView.Adapter<ExercisesAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.exercise_item,parent,false)
         return MyViewHolder(itemView)
     }
