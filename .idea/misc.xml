@@ -3,13 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/PionerClub/app/src/main/res/layout/activity_user.xml" value="0.1" />
-        <entry key="..\:/Users/User/PionerClub/app/src/main/res/layout/exerceiss_item.xml" value="0.11548913043478261" />
-        <entry key="..\:/Users/User/PionerClub/app/src/main/res/layout/exercise_item.xml" value="0.25" />
-        <entry key="..\:/Users/User/PionerClub/app/src/main/res/layout/fragment_exercises.xml" value="0.1" />
-        <entry key="..\:/Users/User/PionerClub/app/src/main/res/layout/fragment_exercises_add.xml" value="0.25" />
-        <entry key="..\:/Users/User/PionerClub/app/src/main/res/layout/fragment_statistic_ration.xml" value="0.11548913043478261" />
-        <entry key="..\:/Users/User/PionerClub/app/src/main/res/menu/nav_header_menu.xml" value="0.5" />
+        <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/activity_start.xml" value="0.37206878582595104" />
+        <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/activity_user.xml" value="0.276268115942029" />
+        <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/fragment_messenger.xml" value="0.2801120448179272" />
+        <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/fragment_ration_add.xml" value="0.20885416666666667" />
       </map>
     </option>
   </component>

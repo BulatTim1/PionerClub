@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.pioner.R
 
+
 class MessengerFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val root: View = inflater.inflate(R.layout.fragment_messenger, container, false)
+    ): View? {
+        val root = inflater.inflate(R.layout.fragment_messenger, container, false)
         return root
     }
 }
