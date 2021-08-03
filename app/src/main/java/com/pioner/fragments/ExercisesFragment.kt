@@ -41,7 +41,7 @@ class ExercisesFragment : Fragment() {
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 .getString("uid", "")
                 .toString()
-        dbref = FirebaseDatabase.getInstance().getReference("exercises").child(uid)
+        dbref = FirebaseDatabase.getInstance().getReference("exercises").child(uid).child("measurements")
         //val dbref: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
         //dbref.child("exercises")
         dbref.addValueEventListener(object : ValueEventListener{

@@ -12,8 +12,8 @@ import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.pioner.Exercises
 import com.pioner.R
-import kotlinx.android.synthetic.*
 
 class ExercisesAddFragment : Fragment() {
     override fun onCreateView(
@@ -30,7 +30,7 @@ class ExercisesAddFragment : Fragment() {
             if (nameExec.text.isEmpty() || description.text.isEmpty() || link.text.isEmpty()) {
                 Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
             } else {
-                val exercises = exercises(
+                val exercises = Exercises(
                     nameExec.text.toString(),
                     description.text.toString(),
                     link.text.toString(),
@@ -53,8 +53,5 @@ class ExercisesAddFragment : Fragment() {
             }
         }
         return root
-    }
-    @Suppress("ClassName")
-    class exercises(var nameExec: String?, var description: String?, var link: String?) {
     }
 }
