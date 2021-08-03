@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.pioner.Exercises
 import com.pioner.ExercisesAdapter
 import com.pioner.R
@@ -39,7 +41,9 @@ class ExercisesFragment : Fragment() {
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 .getString("uid", "")
                 .toString()
-        dbref = FirebaseDatabase.getInstance().getReference("exercises")
+        dbref = FirebaseDatabase.getInstance().getReference("exercises").child(uid)
+        //val dbref: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
+        //dbref.child("exercises")
         dbref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){

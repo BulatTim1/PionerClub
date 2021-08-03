@@ -8,9 +8,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
@@ -21,6 +19,12 @@ import com.google.firebase.ktx.Firebase
 import com.pioner.R
 import com.pioner.User
 import com.pioner.UserActivity
+import android.widget.TextView
+
+import android.widget.ArrayAdapter
+
+
+
 
 class RegFragment : Fragment() {
 
@@ -35,9 +39,13 @@ class RegFragment : Fragment() {
         val pass: EditText = root.findViewById(R.id.reg_pass)
         val reg: Button = root.findViewById(R.id.reg_btn)
         val toLog: Button = root.findViewById(R.id.reg_log)
+        val trennerChoose: Spinner = root.findViewById(R.id.trenner_choose)
         val auth = FirebaseAuth.getInstance()
         val table: DatabaseReference =
             Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
+
+//        var adapter: ArrayAdapter? = ArrayList<String>
+//        trennerChoose.setAdapter()
 
         reg.setOnClickListener {
             if (name.text.isEmpty() || lastname.text.isEmpty()) {
@@ -92,12 +100,6 @@ class RegFragment : Fragment() {
                                             ).show()
                                         }
                                     }
-
-//                                val fm = parentFragmentManager
-//                                val ft = fm.beginTransaction()
-//                                val fragment = MainFragment()
-//                                ft.replace(R.id.host_fragment, fragment)
-//                                ft.commit()
                             }
                         } else {
                             Toast.makeText(
