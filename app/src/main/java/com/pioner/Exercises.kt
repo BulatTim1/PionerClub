@@ -1,5 +1,5 @@
 package com.pioner
 
-data class Exercises(var nameEx:String? = null, var descriptionEx:String? = null, var linkEx:String? = null)
+data class Exercises(var nameExec:String? = null, var description:String? = null, var link:String? = null)
 
 

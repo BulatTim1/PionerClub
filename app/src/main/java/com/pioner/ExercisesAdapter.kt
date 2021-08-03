@@ -17,9 +17,9 @@ class ExercisesAdapter(private val exerciseslist : ArrayList<Exercises>) : Recyc
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = exerciseslist[position]
-        holder.nameEx.text = currentitem.nameEx
-        holder.descriptionEx.text = currentitem.descriptionEx
-        holder.linkEx.text = currentitem.linkEx
+        holder.nameEx.text = currentitem.nameExec
+        holder.descriptionEx.text = currentitem.description
+        holder.linkEx.text = currentitem.link
     }
 
     override fun getItemCount(): Int {
@@ -27,8 +27,8 @@ class ExercisesAdapter(private val exerciseslist : ArrayList<Exercises>) : Recyc
     }
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        val nameEx : TextView = itemView.findViewById(R.id.nameEx)
-        val descriptionEx : TextView = itemView.findViewById(R.id.descriptionEx)
-        val linkEx : TextView = itemView.findViewById(R.id.linkEx)
+        val nameEx : TextView = itemView.findViewById(R.id.nameExec)
+        val descriptionEx : TextView = itemView.findViewById(R.id.description)
+        val linkEx : TextView = itemView.findViewById(R.id.link)
     }
 }

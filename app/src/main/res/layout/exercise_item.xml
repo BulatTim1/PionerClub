@@ -26,7 +26,7 @@
                 android:textStyle="bold"
                 />
             <TextView
-                android:id="@+id/nameEx"
+                android:id="@+id/nameExec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -49,7 +49,7 @@
                 android:textStyle="bold"
                 />
             <TextView
-                android:id="@+id/descriptionEx"
+                android:id="@+id/description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -72,7 +72,7 @@
                 android:textStyle="bold"
                 />
             <TextView
-                android:id="@+id/linkEx"
+                android:id="@+id/link"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
