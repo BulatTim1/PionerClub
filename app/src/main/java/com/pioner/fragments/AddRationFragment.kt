@@ -67,11 +67,9 @@ class AddRationFragment : Fragment() {
                     }
                 }
             }
-            viewStatistic.setOnClickListener {
-//                supportFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).commit()
-                parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).commit()
-//                transaction.replace(R.id.fragment_container, fragment);
-            }
+        }
+        viewStatistic.setOnClickListener {
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).commit()
         }
         return root
     }
