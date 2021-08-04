@@ -25,7 +25,6 @@ class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>) : Recycl
         return exerciseslist.size
     }
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-
         val nameEx : TextView = itemView.findViewById(R.id.nameExec)
         val descriptionEx : TextView = itemView.findViewById(R.id.description)
         val linkEx : TextView = itemView.findViewById(R.id.link)

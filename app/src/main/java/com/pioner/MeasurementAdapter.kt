@@ -1,5 +1,6 @@
 package com.pioner
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,12 +15,13 @@ class MeasurementAdapter(private val measurementlist : ArrayList<MeasurementClas
         return MeasurementHolder(itemView)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MeasurementHolder, position: Int) {
         val currentitem = measurementlist[position]
         holder.dataview.text = currentitem.Ldt
-        holder.massview.text = currentitem.mass.toString()
-        holder.heightview.text = currentitem.height.toString()
-        holder.caloriesview.text = currentitem.calories.toString()
+        holder.massview.text = currentitem.mass.toString() + " кг"
+        holder.heightview.text = currentitem.height.toString() + " см"
+        holder.caloriesview.text = currentitem.calories.toString() + " ккал"
     }
 
     override fun getItemCount(): Int {
