@@ -46,9 +46,14 @@ class AddRationFragment : Fragment() {
                 val ldt = "$day/$month/$year"
                 if (mass.text.isEmpty() || height.text.isEmpty() || calories.text.isEmpty()) {
                     Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
-//            } else if (LdtInt >) {
-//            Toast.makeText(context, "Вы уже отправляли данные сегодня", Toast.LENGTH_LONG).show()
-                } else {
+                } else if (mass.text.length > 3) {
+                    Toast.makeText(context, "Неправильный формат массы", Toast.LENGTH_LONG).show()
+                } else if (height.text.length > 3) {
+                    Toast.makeText(context, "Неправильный формат роста", Toast.LENGTH_LONG).show()
+                } else if (calories.text.length > 4) {
+                    Toast.makeText(context, "Неправильный формат каллорий", Toast.LENGTH_LONG).show()
+                } else
+                {
                     val measurement = MeasurementClass( mass.text.toString().toInt(),  height.text.toString().toInt(),  calories.text.toString().toInt(), ldt )
                     val uid: String =
                         requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
