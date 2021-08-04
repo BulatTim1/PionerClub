@@ -36,10 +36,10 @@
         android:layout_marginEnd="128dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
+        android:hint="Текст"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Текст"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

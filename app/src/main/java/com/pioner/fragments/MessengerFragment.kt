@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pioner.R
+import com.pioner.databinding.ActivityStartBinding
+import com.pioner.databinding.FragmentMessengerBinding
 
 
 class MessengerFragment : Fragment() {
@@ -15,6 +17,7 @@ class MessengerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_messenger, container, false)
+        val binding: FragmentMessengerBinding = FragmentMessengerBinding.inflate(inflater)
         return root
     }
 }
