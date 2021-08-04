@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -16,7 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_margin="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="1dp"
             android:orientation="vertical">
 
             <TextView
@@ -25,7 +27,15 @@
                 android:layout_height="wrap_content"
                 android:text="20/20/2020"
                 android:textColor="#767676"
-                android:textSize="14sp" />
+                android:textSize="10sp"
+                tools:ignore="SmallSp"
+                android:layout_marginStart="8dp"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/line" />
         </LinearLayout>
 
         <LinearLayout
@@ -45,7 +55,8 @@
                     android:id="@+id/imageMass"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    app:srcCompat="@drawable/mass" />
+                    app:srcCompat="@drawable/mass"
+                    android:layout_marginEnd="4dp"/>
 
                 <TextView
                     android:id="@+id/mass_view"
@@ -63,8 +74,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:orientation="horizontal"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
+                android:layout_marginStart="36dp"
+                android:layout_marginEnd="36dp">
 
                 <ImageView
                     android:id="@+id/imageHeight"
@@ -93,7 +104,8 @@
                     android:id="@+id/imageCcal"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
-                    app:srcCompat="@drawable/ccal"/>
+                    app:srcCompat="@drawable/ccal"
+                    android:layout_marginEnd="2dp"/>
 
                 <TextView
                     android:id="@+id/calories_view"
