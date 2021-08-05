@@ -10,8 +10,6 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.pioner.R
-import com.pioner.databinding.FragmentAccessRecoveryBinding
-import com.pioner.databinding.FragmentMessengerBinding
 
 class AccessRecoveryFragment : Fragment() {
 
@@ -34,10 +32,12 @@ class AccessRecoveryFragment : Fragment() {
             if (email.text.isNotEmpty()) auth.sendPasswordResetEmail(email.text.toString()).addOnSuccessListener {
                 email.text.clear()
                 Toast.makeText(context, "Проверьте почту", Toast.LENGTH_LONG).show()
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.login_host, LoginFragment())
+                    .commit()
             }.addOnFailureListener { Toast.makeText(context, it.message, Toast.LENGTH_LONG).show() }
             else Toast.makeText(context, "Вы не ввели почту!", Toast.LENGTH_SHORT).show()
-//            parentFragmentManager.beginTransaction().replace(R.id.login_host, CodeRecoveryFragment())
-//                .commit()
+
         }
 
         return root
