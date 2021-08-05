@@ -46,6 +46,7 @@ class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>) : Recycl
                 args.putString("linkExec", linkEx.text.toString())
                 val newFragment = ExercisesInformation()
                 newFragment.setArguments(args)
+
                     //FragmentManager.beginTransaction().replace(R.layout.fragment_exercises, ExercisesInformation()).commit()
             }
         }

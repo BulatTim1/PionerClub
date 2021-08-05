@@ -58,11 +58,10 @@ class LoginFragment : Fragment() {
             }
         }
         toReg.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment())
-                .commit()
+            parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment()).addToBackStack("login").commit()
         }
         toRecovery.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.login_host, AccessRecoveryFragment())
+            parentFragmentManager.beginTransaction().replace(R.id.login_host, AccessRecoveryFragment()).addToBackStack( "login" )
                 .commit()
         }
         return root

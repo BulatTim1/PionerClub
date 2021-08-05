@@ -22,7 +22,9 @@ class UserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         val uid = getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
         if (uid == "") {
-            startActivity(Intent(this, StartActivity::class.java))
+            startActivity(
+                Intent(this, StartActivity::class.java)
+            )
         }
         super.onCreate(savedInstanceState)
         binding = ActivityUserBinding.inflate(layoutInflater)
