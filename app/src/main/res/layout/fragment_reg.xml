@@ -11,10 +11,11 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/instruction_reg_textView"
+            android:id="@+id/reg_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="114dp"
+
             android:text="Регистрация"
             android:textColor="#6588C2"
             android:textSize="60px"
@@ -37,7 +38,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instruction_reg_textView"
+            app:layout_constraintTop_toBottomOf="@+id/reg_textView"
             tools:ignore="HardcodedText" />
 
         <EditText
@@ -61,6 +62,7 @@
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
+            android:autofillHints="emailAddress"
             android:background="@drawable/background_input_log_reg"
             android:ems="10"
             android:gravity="center"
@@ -92,10 +94,10 @@
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/repeat_sending_reg_code"
+            android:id="@+id/return_log_btn"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:background="#00FFFFFF"
             android:text="Уже есть аккаунт?"
             android:textAllCaps="false"
@@ -107,7 +109,7 @@
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/end_reg_btn"
+            android:id="@+id/reg_cont"
             android:layout_width="541px"
             android:layout_height="135px"
             android:layout_marginTop="84dp"

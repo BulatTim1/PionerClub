@@ -33,8 +33,8 @@ class RegFragment : Fragment() {
         val lastname: EditText = root.findViewById(R.id.reg_lastname)
         val email: EditText = root.findViewById(R.id.reg_email)
         val pass: EditText = root.findViewById(R.id.reg_pass)
-        val reg: Button = root.findViewById(R.id.end_reg_btn)
-        val toLog: Button = root.findViewById(R.id.repeat_sending_reg_code)
+        val reg: Button = root.findViewById(R.id.reg_cont)
+        val toLog: Button = root.findViewById(R.id.return_log_btn)
         val auth = FirebaseAuth.getInstance()
         val table: DatabaseReference =
             Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference

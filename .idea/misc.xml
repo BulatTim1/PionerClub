@@ -12,7 +12,10 @@
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/drawable/background_button_log_reg.xml" value="0.3828125" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/drawable/background_imput_log_reg.xml" value="0.3828125" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/drawable/ic_android_black_24dp.xml" value="0.3828125" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_access_recovery.xml" value="0.33" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_code_recovery.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_confirmation_registration.xml" value="0.40764331210191085" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_creating_new_password.xml" value="0.25" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_exercises_add.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_ration_add.xml" value="0.3625" />

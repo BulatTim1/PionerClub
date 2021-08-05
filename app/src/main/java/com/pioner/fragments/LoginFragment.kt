@@ -29,6 +29,8 @@ class LoginFragment : Fragment() {
         val pass: EditText = root.findViewById(R.id.log_pass)
         val log: Button = root.findViewById(R.id.log_btn)
         val toReg: Button = root.findViewById(R.id.log_reg)
+        val toRecovery: Button = root.findViewById(R.id.log_miss_pass)
+
         val auth = FirebaseAuth.getInstance()
         toReg.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment())
@@ -55,9 +57,13 @@ class LoginFragment : Fragment() {
                             }
                         }
                         Toast.makeText(context, "Не удалось войти", Toast.LENGTH_LONG)
-                                .show()
+                            .show()
                     }
             }
+        }
+        toRecovery.setOnClickListener {
+            parentFragmentManager.beginTransaction().replace(R.id.login_host, AccessRecoveryFragment())
+                .commit()
         }
         return root
     }
