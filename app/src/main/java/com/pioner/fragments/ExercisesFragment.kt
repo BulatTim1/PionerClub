@@ -35,7 +35,6 @@ class ExercisesFragment : Fragment() {
         return root
     }
 
-
     private fun getUserData() {
         val uid: String =
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
