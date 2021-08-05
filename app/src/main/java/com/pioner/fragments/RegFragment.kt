@@ -1,14 +1,14 @@
 package com.pioner.fragments
 
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
@@ -18,10 +18,6 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.pioner.R
 import com.pioner.User
-import com.pioner.UserActivity
-import android.widget.TextView
-
-import android.widget.ArrayAdapter
 
 
 
@@ -37,9 +33,8 @@ class RegFragment : Fragment() {
         val lastname: EditText = root.findViewById(R.id.reg_lastname)
         val email: EditText = root.findViewById(R.id.reg_email)
         val pass: EditText = root.findViewById(R.id.reg_pass)
-        val reg: Button = root.findViewById(R.id.reg_btn)
-        val toLog: Button = root.findViewById(R.id.reg_log)
-        val trennerChoose: Spinner = root.findViewById(R.id.trenner_choose)
+        val reg: Button = root.findViewById(R.id.end_reg_btn)
+        val toLog: Button = root.findViewById(R.id.repeat_sending_reg_code)
         val auth = FirebaseAuth.getInstance()
         val table: DatabaseReference =
             Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
@@ -68,38 +63,40 @@ class RegFragment : Fragment() {
                                     name.text.toString(),
                                     lastname.text.toString()
                                 )
-                                requireActivity().getSharedPreferences(
-                                    "user_pref",
-                                    Context.MODE_PRIVATE
-                                ).edit().putString("uid", uid).apply()
-                                table.child("users").child(uid).setValue(user)
-                                    .addOnCompleteListener {
-                                        if (it.isSuccessful) {
-                                            Toast.makeText(
-                                                context,
-                                                "Регистрация успешна",
-                                                Toast.LENGTH_LONG
-                                            )
-                                                .show()
-                                            name.text.clear()
-                                            lastname.text.clear()
-                                            email.text.clear()
-                                            pass.text.clear()
-                                            startActivity(
-                                                Intent(
-                                                    activity,
-                                                    UserActivity::class.java
-                                                )
-                                            )
-                                        } else {
-                                            Log.e("DB", "DB: ${it.exception}")
-                                            Toast.makeText(
-                                                context,
-                                                "Ошибка: ${it.exception}",
-                                                Toast.LENGTH_LONG
-                                            ).show()
-                                        }
-                                    }
+                                parentFragmentManager.beginTransaction().replace(R.id.login_host, ConfirmationRegistrationFragment())
+                                    .commit()
+//                                requireActivity().getSharedPreferences(
+//                                    "user_pref",
+//                                    Context.MODE_PRIVATE
+//                                ).edit().putString("uid", uid).apply()
+//                                table.child("users").child(uid).setValue(user)
+//                                    .addOnCompleteListener {
+//                                        if (it.isSuccessful) {
+//                                            Toast.makeText(
+//                                                context,
+//                                                "Регистрация успешна",
+//                                                Toast.LENGTH_LONG
+//                                            )
+//                                                .show()
+//                                            name.text.clear()
+//                                            lastname.text.clear()
+//                                            email.text.clear()
+//                                            pass.text.clear()
+//                                            startActivity(
+//                                                Intent(
+//                                                    activity,
+//                                                    UserActivity::class.java
+//                                                )
+//                                            )
+//                                        } else {
+//                                            Log.e("DB", "DB: ${it.exception}")
+//                                            Toast.makeText(
+//                                                context,
+//                                                "Ошибка: ${it.exception}",
+//                                                Toast.LENGTH_LONG
+//                                            ).show()
+//                                        }
+//                                    }
                             }
                         } else {
                             Toast.makeText(

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ConfirmationRegistrationFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/confirmTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="116dp"
+            android:text="Подтверждение почты"
+            android:textColor="#6588C2"
+            android:textSize="60px"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/logoImage"
+            android:layout_width="441px"
+            android:layout_height="239px"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/image_mail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmTextView" />
+
+        <TextView
+            android:id="@+id/instruction_reg_textView"
+            android:layout_width="310dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="48dp"
+            android:gravity="center"
+            android:text="Проверьте почту и введите код из присланного вам письма."
+            android:textColor="#93ABD2"
+            android:textSize="45px"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoImage" />
+
+
+        <EditText
+            android:id="@+id/reg_name"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/background_input_log_reg"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Код подтверждения"
+            android:textColorHint="#93ABD2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/instruction_reg_textView"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/repeat_sending_reg_code"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+            android:layout_marginTop="8dp"
+            android:background="#00FFFFFF"
+            android:text="Повторить отправку кода"
+            android:textAllCaps="false"
+            android:textColor="#6588C2"
+            android:textSize="35px"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reg_name"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/end_reg_btn"
+            android:layout_width="541px"
+            android:layout_height="135px"
+            android:layout_marginTop="90dp"
+            android:background="@drawable/background_button_log_reg"
+            android:text="Завершить"
+            android:textAllCaps="false"
+            android:textColor="#F4F7FB"
+            android:textSize="60px"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_sending_reg_code"
+            tools:ignore="HardcodedText" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
