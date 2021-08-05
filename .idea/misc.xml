@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/activity_start.xml" value="0.25" />
+        <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/activity_user.xml" value="0.23072916666666668" />
         <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/fragment_access_recovery.xml" value="0.23072916666666668" />
         <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/fragment_code_recovery.xml" value="0.23072916666666668" />
+        <entry key="..\:/Projects/samsung/PionerClub/app/src/main/res/layout/fragment_login.xml" value="0.23072916666666668" />
       </map>
     </option>
   </component>
