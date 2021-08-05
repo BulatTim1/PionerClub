@@ -46,7 +46,7 @@
         <Button
             android:id="@+id/return_log_recovery_btn"
             android:layout_width="wrap_content"
-            android:layout_height="48dp"
+            android:layout_height="18dp"
             android:layout_marginTop="8dp"
             android:background="#00FFFFFF"
             android:text="Помните пароль? Войдите"
