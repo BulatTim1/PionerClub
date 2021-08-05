@@ -43,7 +43,7 @@ class CodeRecoveryFragment : Fragment() {
                 .commit()
         }
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_code_recovery, container, false)
+        return root
     }
 
     companion object {

@@ -40,7 +40,7 @@ class ConfirmationRegistrationFragment : Fragment() {
             parentFragmentManager.beginTransaction().replace(R.id.login_host, LoginFragment())
                 .commit()
         }
-        return inflater.inflate(R.layout.fragment_confirmation_registration, container, false)
+        return root
     }
 
     companion object {

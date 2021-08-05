@@ -48,7 +48,8 @@ class AccessRecoveryFragment : Fragment() {
             parentFragmentManager.beginTransaction().replace(R.id.login_host, CodeRecoveryFragment())
                 .commit()
         }
-        return inflater.inflate(R.layout.fragment_access_recovery, container, false)
+
+        return root
     }
 
     companion object {

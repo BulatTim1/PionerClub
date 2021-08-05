@@ -63,6 +63,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:autofillHints="emailAddress"
+            android:inputType="textEmailAddress"
             android:background="@drawable/background_input_log_reg"
             android:ems="10"
             android:gravity="center"

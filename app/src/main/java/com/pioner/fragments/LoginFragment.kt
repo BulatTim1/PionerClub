@@ -32,10 +32,6 @@ class LoginFragment : Fragment() {
         val toRecovery: Button = root.findViewById(R.id.log_miss_pass)
 
         val auth = FirebaseAuth.getInstance()
-        toReg.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment())
-                .commit()
-        }
         log.setOnClickListener {
             if (!isEmail(email)) {
                 Toast.makeText(context, "Неправильная почта!", Toast.LENGTH_LONG).show()
@@ -60,6 +56,10 @@ class LoginFragment : Fragment() {
                             .show()
                     }
             }
+        }
+        toReg.setOnClickListener {
+            parentFragmentManager.beginTransaction().replace(R.id.login_host, RegFragment())
+                .commit()
         }
         toRecovery.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.login_host, AccessRecoveryFragment())
