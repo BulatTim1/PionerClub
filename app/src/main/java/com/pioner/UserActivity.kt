@@ -9,10 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.pioner.databinding.ActivityUserBinding
-import com.pioner.fragments.AddRationFragment
-import com.pioner.fragments.ExercisesAddFragment
-import com.pioner.fragments.ExercisesFragment
-import com.pioner.fragments.MessengerFragment
+import com.pioner.fragments.*
 
 class UserActivity : AppCompatActivity() {
 
@@ -34,6 +31,8 @@ class UserActivity : AppCompatActivity() {
         binding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment())
+            .commit()
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.messenger -> {
