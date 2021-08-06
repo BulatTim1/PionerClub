@@ -6,7 +6,13 @@
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
     tools:context=".UserActivity">
-
+    <fragment
+        android:id="@+id/fragment1"
+        android:name="com.pioner.fragments.MainPageStudentFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        tools:layout="@layout/activity_user" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout="@layout/fragment_messenger" />-->
+
         <FrameLayout
             android:id="@+id/user_container"
             android:layout_width="match_parent"
