@@ -2,9 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/profile"
+        android:title="Профиль" />
+
+    <item
         android:id="@+id/messenger"
-        android:title="Мессенджер"
-        />
+        android:title="Мессенджер" />
     <item
         android:id="@+id/ration"
         android:title="Дневник"

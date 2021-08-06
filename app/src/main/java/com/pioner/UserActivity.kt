@@ -35,6 +35,11 @@ class UserActivity : AppCompatActivity() {
             .commit()
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId){
+                R.id.profile -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment())
+                        .commit()
+                    Toast.makeText(applicationContext, "Профиль", Toast.LENGTH_SHORT).show()
+                }
                 R.id.messenger -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment())
                     .commit()
