@@ -56,7 +56,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/msgText" />
 
-<!--        <androidx.recyclerview.widget.RecyclerView-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/msgs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/msgText"
+        app:layout_constraintTop_toBottomOf="@+id/trennerName"
+        tools:layout_editor_absoluteX="1dp" />
+
+    <!--        <androidx.recyclerview.widget.RecyclerView-->
 <!--            android:id="@+id/msgRCView"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="0dp"-->

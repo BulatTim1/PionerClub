@@ -1,3 +1,3 @@
 package com.pioner
 
-data class Message(var user:String? = null, var msg:String? = null)
+data class Message(var user:String = "", var msg:String = "")

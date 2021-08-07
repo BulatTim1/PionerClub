@@ -1,11 +1,8 @@
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.pioner.Message
 import com.pioner.R
@@ -30,7 +27,7 @@ class MessengerAdapter(private val exerciseslist: ArrayList<Message>) : Recycler
 
     @SuppressLint("ResourceType")
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val user : TextView = itemView.findViewById(R.id.user)
+        val user : TextView = itemView.findViewById(R.id.msg_user)
         val msg : TextView = itemView.findViewById(R.id.msg_body)
     }
 }

@@ -26,7 +26,7 @@ class ExercisesAddFragment : Fragment() {
         val description: EditText = root.findViewById(R.id.exercise_body)
         val link: EditText = root.findViewById(R.id.exercise_link)
         val save: Button = root.findViewById(R.id.exercise_save)
-        val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
+        val table: DatabaseReference = Firebase.database.reference
         save.setOnClickListener {
             if (nameExec.text.isEmpty() || description.text.isEmpty() || link.text.isEmpty()) {
                 Toast.makeText(context, "Вы не ввели все данные", Toast.LENGTH_LONG).show()
