@@ -36,28 +36,28 @@ class UserActivity : AppCompatActivity() {
         b.navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.profile -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.messenger -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                     .commit()
                 }
                 R.id.ration -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).addToBackStack(null)
                         .commit()
 
                 }
                 R.id.settings -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.exercises -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.addexercises -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesAddFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesAddFragment()).addToBackStack(null)
                         .commit()
                     Toast.makeText(applicationContext, "Вход в Добавить упражнение. Функция для тренера", Toast.LENGTH_SHORT).show()
                 }
@@ -73,6 +73,8 @@ class UserActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
+        //if need to do something
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
