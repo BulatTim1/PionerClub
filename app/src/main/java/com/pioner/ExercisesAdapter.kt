@@ -49,15 +49,15 @@ class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>, private 
         val descriptionEx : TextView = itemView.findViewById(R.id.description)
         val linkEx : TextView = itemView.findViewById(R.id.link)
         init {
-            itemView.setOnClickListener { v: View ->
+            itemView.setOnClickListener {
                 val position: Int = adapterPosition
                 Toast.makeText(itemView.context, "You clicked on item # ${position+1}",Toast.LENGTH_SHORT).show()
-                val args = Bundle()
-                args.putString("nameExec", nameEx.text.toString())
-                args.putString("descriptionExec", descriptionEx.text.toString())
-                args.putString("linkExec", linkEx.text.toString())
-                val newFragment = ExercisesInformation()
-                newFragment.setArguments(args)
+//                val args = Bundle()
+//                args.putString("nameExec", nameEx.text.toString())
+//                args.putString("descriptionExec", descriptionEx.text.toString())
+//                args.putString("linkExec", linkEx.text.toString())
+//                val newFragment = ExercisesInformation()
+//                newFragment.arguments = args
                 val videoId = linkEx.text.toString().replace("https://www.youtube.com/watch?v=", "")
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$videoId"))
                 intent.putExtra("VIDEO_ID", videoId)
