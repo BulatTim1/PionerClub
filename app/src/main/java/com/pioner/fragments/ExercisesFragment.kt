@@ -24,9 +24,8 @@ class ExercisesFragment : Fragment() {
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_exercises, container, false)
         exercisesRecyclerView = root.findViewById(R.id.exerciseslist)
-        val mymanag: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        exercisesRecyclerView.layoutManager = mymanag
-        //ExercisesRecyclerView.layoutManager = LinearLayoutManager(this)
+        val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        exercisesRecyclerView.layoutManager = layoutManager
         exercisesRecyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf()
         getUserData()
@@ -39,8 +38,6 @@ class ExercisesFragment : Fragment() {
                 .getString("uid", "")
                 .toString()
         dbref = FirebaseDatabase.getInstance().getReference("exercises").child(uid)
-        //val dbref: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
-        //dbref.child("exercises")
         dbref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
@@ -51,11 +48,7 @@ class ExercisesFragment : Fragment() {
                     exercisesRecyclerView.adapter = ExercisesAdapter(userArrayList)
                 }
             }
-
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
+            override fun onCancelled(error: DatabaseError) {}
         })
     }
 }

@@ -20,17 +20,17 @@ class MainPageStudentFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val root: View = inflater.inflate(R.layout.fragment_main_page_student, container, false)
         val progressBar: ProgressBar = root.findViewById(R.id.ProgressCircleBar)
         val progressText: TextView = root.findViewById(R.id.ProgressCircleText)
-        val diary_down_btn: Button = root.findViewById(R.id.diary_main_btn)
-        val diary_top_btn: Button = root.findViewById(R.id.diary_btn)
-        val setting_down_btn: Button = root.findViewById(R.id.setting_main_btn)
-        val mess_down_btn: Button = root.findViewById(R.id.mess_main_btn)
-        val exerc_down_btn: Button = root.findViewById(R.id.exerc_main_btn)
-        val exerc_top_btn: Button = root.findViewById(R.id.continue_exercise_btn)
-        val messenger_top_btn: Button = root.findViewById(R.id.messenger_btn)
+        val diaryDownBtn: Button = root.findViewById(R.id.diary_main_btn)
+        val diaryTopBtn: Button = root.findViewById(R.id.diary_btn)
+        val settingDownBtn: Button = root.findViewById(R.id.setting_main_btn)
+        val messDownBtn: Button = root.findViewById(R.id.mess_main_btn)
+        val exercDownBtn: Button = root.findViewById(R.id.exerc_main_btn)
+        val exercTopBtn: Button = root.findViewById(R.id.continue_exercise_btn)
+        val messengerTopBtn: Button = root.findViewById(R.id.messenger_btn)
         val massView : TextView = root.findViewById(R.id.massMainView)
         val heightView : TextView = root.findViewById(R.id.heightMainView)
         val calView : TextView = root.findViewById(R.id.ccalMainView)
@@ -43,32 +43,32 @@ class MainPageStudentFragment : Fragment() {
 //        heightView.text = rationList[2].toString()
 //        calView.text = rationList[3].toString()
 
-        diary_down_btn.setOnClickListener{
+        diaryDownBtn.setOnClickListener{
             parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
                 .commit()
         }
-        diary_top_btn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
+        diaryTopBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).addToBackStack(null)
                 .commit()
         }
-        setting_down_btn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment())
+        settingDownBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment()).addToBackStack(null)
                 .commit()
         }
-        mess_down_btn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment())
+        messDownBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
-        exerc_down_btn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment())
+        exercDownBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment()).addToBackStack(null)
                 .commit()
         }
-        exerc_top_btn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment())
+        exercTopBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment()).addToBackStack(null)
                 .commit()
         }
-        messenger_top_btn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment())
+        messengerTopBtn.setOnClickListener{
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
 

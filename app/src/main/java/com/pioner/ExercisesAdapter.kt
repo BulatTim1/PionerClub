@@ -6,6 +6,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +26,7 @@ class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>) :
         val currentitem = exerciseslist[position]
         holder.nameEx.text = currentitem.nameExec
         holder.descriptionEx.text = currentitem.description
-        holder.linkEx.text = currentitem.link
+        holder.linkEx = currentitem.link.toString()
     }
 
     override fun getItemCount(): Int {
@@ -34,19 +35,20 @@ class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>) :
 
     @SuppressLint("ResourceType")
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameEx: TextView = itemView.findViewById(R.id.exercise_name)
+        val nameEx: TextView = itemView.findViewById(R.id.exercise_title)
         val descriptionEx: TextView = itemView.findViewById(R.id.exercise_body)
-        val linkEx: TextView = itemView.findViewById(R.id.exercise_link)
+        private val btn: Button = itemView.findViewById(R.id.viewVideoBtn)
+        var linkEx: String = ""
 
         init {
-            itemView.setOnClickListener {
+            btn.setOnClickListener {
                 val position: Int = adapterPosition
                 Toast.makeText(
                     itemView.context,
                     "You clicked on item # ${position + 1}",
                     Toast.LENGTH_SHORT
                 ).show()
-                val videoId = linkEx.text.toString().replace("https://www.youtube.com/watch?v=", "")
+                val videoId = linkEx.replace("https://www.youtube.com/watch?v=", "")
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$videoId"))
                 intent.putExtra("VIDEO_ID", videoId)
                 itemView.context.startActivity(intent)
