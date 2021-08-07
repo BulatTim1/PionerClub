@@ -51,7 +51,7 @@ class UserActivity : AppCompatActivity() {
 
                 }
                 R.id.settings -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment())
                         .commit()
                     Toast.makeText(applicationContext, "Вход в настройки", Toast.LENGTH_SHORT).show()
                 }

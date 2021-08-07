@@ -23,7 +23,7 @@ class ExercisesAddFragment : Fragment() {
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_exercises_add, container, false)
         val nameExec: EditText = root.findViewById(R.id.exercise_name)
-        val description: EditText = root.findViewById(R.id.msg_body)
+        val description: EditText = root.findViewById(R.id.exercise_body)
         val link: EditText = root.findViewById(R.id.exercise_link)
         val save: Button = root.findViewById(R.id.exercise_save)
         val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference

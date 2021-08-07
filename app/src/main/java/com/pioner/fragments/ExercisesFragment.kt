@@ -9,15 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import com.pioner.Exercises
 import com.pioner.ExercisesAdapter
 import com.pioner.R
 
 class ExercisesFragment : Fragment() {
     private lateinit var dbref : DatabaseReference
-    private lateinit var ExercisesRecyclerView : RecyclerView
+    private lateinit var exercisesRecyclerView : RecyclerView
     private lateinit var userArrayList: ArrayList<Exercises>
 
     override fun onCreateView(
@@ -25,12 +23,12 @@ class ExercisesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_exercises, container, false)
-        ExercisesRecyclerView = root.findViewById(R.id.exerciseslist)
+        exercisesRecyclerView = root.findViewById(R.id.exerciseslist)
         val mymanag: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        ExercisesRecyclerView.layoutManager = mymanag
+        exercisesRecyclerView.layoutManager = mymanag
         //ExercisesRecyclerView.layoutManager = LinearLayoutManager(this)
-        ExercisesRecyclerView.setHasFixedSize(true)
-        userArrayList = arrayListOf<Exercises>()
+        exercisesRecyclerView.setHasFixedSize(true)
+        userArrayList = arrayListOf()
         getUserData()
         return root
     }
@@ -50,7 +48,7 @@ class ExercisesFragment : Fragment() {
                         val exer = userSnapshot.getValue(Exercises::class.java)
                         userArrayList.add(exer!!)
                     }
-                    ExercisesRecyclerView.adapter = ExercisesAdapter(userArrayList, requireActivity())
+                    exercisesRecyclerView.adapter = ExercisesAdapter(userArrayList)
                 }
             }
 
