@@ -36,7 +36,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="Ex.: Приседания"
-            android:inputType="number"
+            android:inputType="text"
             android:textColorHint="#93ABD2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -44,7 +44,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <EditText
-            android:id="@+id/exercise_description"
+            android:id="@+id/exercise_body"
             android:layout_width="280dp"
             android:layout_height="40dp"
             android:layout_marginTop="48dp"
@@ -54,12 +54,12 @@
             android:gravity="center"
             android:hint="Описание упражнения"
             android:importantForAutofill="no"
-            android:inputType="number"
+            android:inputType="text"
             android:textColorHint="#93ABD2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exercise_name"/>
+            app:layout_constraintTop_toBottomOf="@+id/exercise_name" />
 
 
         <EditText
@@ -73,12 +73,12 @@
             android:gravity="center"
             android:hint="https://youtu.be/dQw4w9WgXcQ"
             android:importantForAutofill="no"
-            android:inputType="number"
+            android:inputType="text"
             android:textColorHint="#93ABD2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exercise_description" />
+            app:layout_constraintTop_toBottomOf="@+id/exercise_body" />
 
         <Button
             android:id="@+id/exercise_save"
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:text="Описание"
             android:textColor="#D6D6D6"
-            app:layout_constraintBottom_toTopOf="@+id/exercise_description"
+            app:layout_constraintBottom_toTopOf="@+id/exercise_body"
             app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
         <TextView

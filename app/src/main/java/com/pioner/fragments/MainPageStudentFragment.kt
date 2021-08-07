@@ -36,7 +36,7 @@ class MainPageStudentFragment : Fragment() {
                 .commit()
         }
         setting_down_btn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment())
                 .commit()
         }
         mess_down_btn.setOnClickListener{
