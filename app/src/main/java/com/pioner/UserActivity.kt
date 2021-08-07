@@ -46,9 +46,8 @@ class UserActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Вход в мессенджер", Toast.LENGTH_SHORT).show()
                 }
                 R.id.ration -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment())
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
                         .commit()
-                    Toast.makeText(applicationContext, "Вход в дневник", Toast.LENGTH_SHORT).show()
 
                 }
                 R.id.settings -> {

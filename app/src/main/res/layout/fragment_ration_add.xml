@@ -6,117 +6,134 @@
     android:layout_height="match_parent"
     tools:context=".fragments.AddRationFragment">
 
+
     <TextView
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="52dp"
         android:gravity="center"
-        android:text="Дневник вашего тела"
+        android:textColor="#6588C2"
+        android:textStyle="bold"
+        android:text="Добавление записи"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="64dp"
-        android:gravity="start"
-        android:text="@string/MassRationString"
-        app:layout_constraintEnd_toStartOf="@+id/TextPersonMassRation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
     <EditText
         android:id="@+id/TextPersonMassRation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="108dp"
+        android:autofillHints="weight"
+        android:background="@drawable/background_input_log_reg"
         android:ems="10"
+        android:gravity="center"
         android:hint="кг"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        android:autofillHints="weight" />
+        android:textColorHint="#93ABD2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foresight" />
 
     <EditText
         android:id="@+id/TextPersonСaloriesRation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:autofillHints="weight"
+        android:background="@drawable/background_input_log_reg"
         android:ems="10"
-        android:hint="Ккал"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:importantForAutofill="no" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:gravity="start"
-        android:text="@string/ManHeightRationString"
-        app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TextPersonMassRation" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="@string/СaloriesTodayRationString"
+        android:hint="Ккал"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:textColorHint="#93ABD2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextPersonHeightRation" />
 
     <EditText
         android:id="@+id/TextPersonHeightRation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="48dp"
+        android:autofillHints="height"
+        android:background="@drawable/background_input_log_reg"
         android:ems="10"
+        android:gravity="center"
         android:hint="см"
+        android:importantForAutofill="no"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/TextPersonMassRation"
-        android:autofillHints="height" />
+        android:textColorHint="#93ABD2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextPersonMassRation" />
 
     <Button
         android:id="@+id/SaveRationButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Сохранить"
-        app:layout_constraintBottom_toTopOf="@+id/ViewStatisticButton"
+        android:layout_width="541px"
+        android:layout_height="135px"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/background_button_log_reg"
+        android:text="Добавить"
+        android:textAllCaps="false"
+        android:textColor="#F4F7FB"
+        android:textSize="60px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextPersonСaloriesRation"
+        tools:ignore="HardcodedText" />
 
-    <Button
-        android:id="@+id/ViewStatisticButton"
+    <TextView
+        android:id="@+id/foresight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:text="Посмотреть записи "
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="24dp"
+        android:text="Предосмотр данных"
+        android:textColor="#D6D6D6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваш вес"
+        android:textColor="#D6D6D6"
+        app:layout_constraintBottom_toTopOf="@+id/TextPersonMassRation"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ваш рост"
+        android:textColor="#D6D6D6"
+        app:layout_constraintBottom_toTopOf="@+id/TextPersonHeightRation"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Калорийность вашей пищи"
+        android:textColor="#D6D6D6"
+        app:layout_constraintBottom_toTopOf="@+id/TextPersonСaloriesRation"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="115dp" />
+        app:layout_constraintGuide_begin="25dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

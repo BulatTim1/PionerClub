@@ -27,7 +27,6 @@ class AddRationFragment : Fragment() {
         val height: EditText = root.findViewById(R.id.TextPersonHeightRation)
         val calories: EditText = root.findViewById(R.id.TextPersonСaloriesRation)
         val saveRation: Button = root.findViewById(R.id.SaveRationButton)
-        val viewStatistic: Button = root.findViewById(R.id.ViewStatisticButton)
         val c: Calendar = Calendar.getInstance()
         var month = c.get(Calendar.MONTH).toString()
         var day = c.get(Calendar.DAY_OF_MONTH).toString()
@@ -73,9 +72,7 @@ class AddRationFragment : Fragment() {
                 }
             }
         }
-        viewStatistic.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).commit()
-        }
+
         return root
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,11 +25,15 @@ class StatisticRationFragment : Fragment() {
     ): View? {
         val root: View = inflater.inflate(R.layout.fragment_statistic_ration, container, false)
         RationRecyclerView = root.findViewById(R.id.statictic_recycler)
+        val addRation : Button = root.findViewById(R.id.go_ration_add_btn)
         val ration_statistic: RecyclerView.LayoutManager = LinearLayoutManager(context)
         RationRecyclerView.setLayoutManager(ration_statistic)
         RationRecyclerView.setHasFixedSize(true)
         RationArrayList = arrayListOf<MeasurementClass>()
         getRationData()
+        addRation.setOnClickListener {
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment()).commit()
+        }
         return root
     }
 
