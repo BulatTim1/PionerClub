@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/squareBarView"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="36dp"
@@ -32,10 +32,10 @@
             android:max="100"
             android:progress="10"
             android:progressDrawable="@drawable/circular_progress_bar"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            app:layout_constraintBottom_toBottomOf="@+id/squareBarView"
+            app:layout_constraintEnd_toEndOf="@+id/squareBarView"
+            app:layout_constraintStart_toStartOf="@+id/squareBarView"
+            app:layout_constraintTop_toTopOf="@+id/squareBarView" />
 
         <TextView
             android:id="@+id/ProgressCircleText"
@@ -45,15 +45,15 @@
             android:text="Завершено упражнений 75%"
             android:textColor="@color/white"
             android:textSize="10sp"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-            app:layout_constraintEnd_toEndOf="@+id/imageView2"
-            app:layout_constraintStart_toStartOf="@+id/imageView2"
-            app:layout_constraintTop_toTopOf="@+id/imageView2"
+            app:layout_constraintBottom_toBottomOf="@+id/squareBarView"
+            app:layout_constraintEnd_toEndOf="@+id/squareBarView"
+            app:layout_constraintStart_toStartOf="@+id/squareBarView"
+            app:layout_constraintTop_toTopOf="@+id/squareBarView"
             android:textStyle="bold"
             tools:ignore="SmallSp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/continue_exercise_btn"
             style="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:layout_width="160dp"
             android:layout_height="72dp"
@@ -63,69 +63,69 @@
             android:text="Продолжить упражнения"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintStart_toEndOf="@+id/squareBarView"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView9"
+            android:id="@+id/diary_back_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/blue_light_btn"
-            app:layout_constraintBottom_toBottomOf="@+id/button3"
-            app:layout_constraintEnd_toEndOf="@+id/button3"
-            app:layout_constraintStart_toStartOf="@+id/button3"
-            app:layout_constraintTop_toTopOf="@+id/button3" />
+            app:layout_constraintBottom_toBottomOf="@+id/diary_btn"
+            app:layout_constraintEnd_toEndOf="@+id/diary_btn"
+            app:layout_constraintStart_toStartOf="@+id/diary_btn"
+            app:layout_constraintTop_toTopOf="@+id/diary_btn" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/image_diary"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_diary"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
-            app:layout_constraintEnd_toEndOf="@+id/imageView9"
-            app:layout_constraintStart_toStartOf="@+id/imageView9"
-            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+            app:layout_constraintBottom_toBottomOf="@+id/diary_btn"
+            app:layout_constraintEnd_toEndOf="@+id/diary_btn"
+            app:layout_constraintStart_toStartOf="@+id/diary_btn"
+            app:layout_constraintTop_toTopOf="@+id/diary_btn" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/diary_btn"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginTop="4dp"
             android:background="#00FFFFFF"
-            app:layout_constraintStart_toStartOf="@+id/button2"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintStart_toStartOf="@+id/continue_exercise_btn"
+            app:layout_constraintTop_toBottomOf="@+id/continue_exercise_btn" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/messenger_back_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/blue_light_btn"
-            app:layout_constraintBottom_toBottomOf="@+id/button4"
-            app:layout_constraintEnd_toEndOf="@+id/button4"
-            app:layout_constraintStart_toStartOf="@+id/button4"
-            app:layout_constraintTop_toTopOf="@+id/button4" />
+            app:layout_constraintBottom_toBottomOf="@+id/messenger_btn"
+            app:layout_constraintEnd_toEndOf="@+id/messenger_btn"
+            app:layout_constraintStart_toStartOf="@+id/messenger_btn"
+            app:layout_constraintTop_toTopOf="@+id/messenger_btn" />
 
         <ImageView
-            android:id="@+id/imageView7"
+            android:id="@+id/image_messenger"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_messenger"
-            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
-            app:layout_constraintEnd_toEndOf="@+id/imageView8"
-            app:layout_constraintStart_toStartOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+            app:layout_constraintBottom_toBottomOf="@+id/messenger_btn"
+            app:layout_constraintEnd_toEndOf="@+id/messenger_btn"
+            app:layout_constraintStart_toStartOf="@+id/messenger_btn"
+            app:layout_constraintTop_toTopOf="@+id/messenger_btn" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/messenger_btn"
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginTop="4dp"
             android:background="#00FFFFFF"
-            app:layout_constraintEnd_toEndOf="@+id/button2"
-            app:layout_constraintTop_toBottomOf="@+id/button2" />
+            app:layout_constraintEnd_toEndOf="@+id/continue_exercise_btn"
+            app:layout_constraintTop_toBottomOf="@+id/continue_exercise_btn" />
 
         <TextView
-            android:id="@+id/imageView10"
+            android:id="@+id/lastMessageTrainerView"
             android:layout_width="338dp"
             android:layout_height="38dp"
             android:layout_marginTop="32dp"
@@ -138,21 +138,20 @@
             android:paddingStart="25dp"
             android:paddingEnd="25dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
+            app:layout_constraintTop_toBottomOf="@+id/squareBarView"
             tools:ignore="SmallSp" />
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/physical_data_card"
             android:layout_width="338dp"
             android:layout_height="164dp"
             android:layout_marginTop="20dp"
             android:src="@drawable/blue_light_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+            app:layout_constraintTop_toBottomOf="@+id/lastMessageTrainerView" />
 
         <TextView
-            android:id="@+id/TextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -160,12 +159,11 @@
             android:text="Основано на данных за неделю"
             android:textColor="#767676"
             android:textSize="6sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView11"
-            app:layout_constraintTop_toTopOf="@+id/imageView11"
+            app:layout_constraintStart_toStartOf="@+id/physical_data_card"
+            app:layout_constraintTop_toTopOf="@+id/physical_data_card"
             tools:ignore="SmallSp" />
 
         <TextView
-            android:id="@+id/TextView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -173,20 +171,20 @@
             android:text="Cовет дня"
             android:textColor="#767676"
             android:textSize="6sp"
-            app:layout_constraintStart_toStartOf="@+id/imageView11"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12"
+            app:layout_constraintStart_toStartOf="@+id/physical_data_card"
+            app:layout_constraintTop_toBottomOf="@+id/line_in_card_View"
             tools:ignore="SmallSp" />
 
         <ImageView
-            android:id="@+id/imageView12"
+            android:id="@+id/line_in_card_View"
             android:layout_width="0dp"
             android:layout_height="10dp"
             android:layout_marginTop="60dp"
             android:src="@drawable/line"
-            app:layout_constraintEnd_toEndOf="@+id/imageView11"
+            app:layout_constraintEnd_toEndOf="@+id/physical_data_card"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/imageView11"
-            app:layout_constraintTop_toTopOf="@+id/imageView11" />
+            app:layout_constraintStart_toStartOf="@+id/physical_data_card"
+            app:layout_constraintTop_toTopOf="@+id/physical_data_card" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -196,9 +194,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="10dp"
             android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="@+id/imageView11"
-            app:layout_constraintStart_toStartOf="@+id/imageView11"
-            app:layout_constraintTop_toTopOf="@+id/imageView11">
+            app:layout_constraintEnd_toEndOf="@+id/physical_data_card"
+            app:layout_constraintStart_toStartOf="@+id/physical_data_card"
+            app:layout_constraintTop_toTopOf="@+id/physical_data_card">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -222,7 +220,7 @@
                     android:textSize="14sp" />
 
                 <ImageView
-                    android:id="@+id/imageView13"
+                    android:id="@+id/MassImageView"
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center_vertical"
@@ -254,7 +252,7 @@
                     android:textSize="14sp" />
 
                 <ImageView
-                    android:id="@+id/imageView14"
+                    android:id="@+id/HeightImageView"
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center_vertical"
@@ -285,7 +283,7 @@
                     android:textSize="14sp" />
 
                 <ImageView
-                    android:id="@+id/imageView15"
+                    android:id="@+id/CcalImageView"
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center_vertical"
@@ -296,7 +294,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tipDayTextView"
             android:layout_width="337dp"
             android:layout_height="70dp"
             android:layout_marginTop="12dp"
@@ -305,10 +303,10 @@
             android:paddingEnd="6dp"
             android:text="Вы стремительно начали терять вес, не изменив свой рацион, что может привести к анемии. Повысьте питательность вашего рациона! При появлении сильной слабости - обратитесь к врачу."
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/imageView11"
+            app:layout_constraintEnd_toEndOf="@+id/physical_data_card"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/imageView11"
-            app:layout_constraintTop_toBottomOf="@+id/imageView12" />
+            app:layout_constraintStart_toStartOf="@+id/physical_data_card"
+            app:layout_constraintTop_toBottomOf="@+id/line_in_card_View" />
 
 
         <LinearLayout
@@ -317,32 +315,32 @@
             android:layout_marginTop="32dp"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+            app:layout_constraintTop_toBottomOf="@+id/physical_data_card"
             tools:layout_editor_absoluteX="0dp">
 
             <Button
-                android:id="@+id/button10"
+                android:id="@+id/diary_main_btn"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
                 android:text="Дневник" />
 
             <Button
-                android:id="@+id/button11"
+                android:id="@+id/mess_main_btn"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
                 android:text="Мессенжер"/>
 
             <Button
-                android:id="@+id/button12"
+                android:id="@+id/exerc_main_btn"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
                 android:text="Упражнения" />
 
             <Button
-                android:id="@+id/button13"
+                android:id="@+id/setting_main_btn"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
