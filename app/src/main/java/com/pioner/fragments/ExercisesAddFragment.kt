@@ -22,10 +22,10 @@ class ExercisesAddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_exercises_add, container, false)
-        val nameExec: EditText = root.findViewById(R.id.name)
-        val description: EditText = root.findViewById(R.id.description)
-        val link: EditText = root.findViewById(R.id.link)
-        val save: Button = root.findViewById(R.id.save)
+        val nameExec: EditText = root.findViewById(R.id.exercise_name)
+        val description: EditText = root.findViewById(R.id.exercise_description)
+        val link: EditText = root.findViewById(R.id.exercise_link)
+        val save: Button = root.findViewById(R.id.exercise_save)
         val table: DatabaseReference = Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
         save.setOnClickListener {
             if (nameExec.text.isEmpty() || description.text.isEmpty() || link.text.isEmpty()) {

@@ -4,25 +4,12 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
-import com.pioner.fragments.AddRationFragment
-import com.pioner.fragments.ExercisesInformation
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.content.ContextCompat.startActivity
-
-
-
-
-
 
 
 class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>, private val activity: Activity) : RecyclerView.Adapter<ExercisesAdapter.MyViewHolder>() {
@@ -46,8 +33,8 @@ class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>, private 
     @SuppressLint("ResourceType")
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val nameEx : TextView = itemView.findViewById(R.id.nameExec)
-        val descriptionEx : TextView = itemView.findViewById(R.id.description)
-        val linkEx : TextView = itemView.findViewById(R.id.link)
+        val descriptionEx : TextView = itemView.findViewById(R.id.exercise_description)
+        val linkEx : TextView = itemView.findViewById(R.id.exercise_link)
         init {
             itemView.setOnClickListener {
                 val position: Int = adapterPosition
