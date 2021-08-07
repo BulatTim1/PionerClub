@@ -38,12 +38,10 @@ class UserActivity : AppCompatActivity() {
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment())
                         .commit()
-                    Toast.makeText(applicationContext, "Профиль", Toast.LENGTH_SHORT).show()
                 }
                 R.id.messenger -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment())
                     .commit()
-                    Toast.makeText(applicationContext, "Вход в мессенджер", Toast.LENGTH_SHORT).show()
                 }
                 R.id.ration -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
@@ -53,12 +51,10 @@ class UserActivity : AppCompatActivity() {
                 R.id.settings -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment())
                         .commit()
-                    Toast.makeText(applicationContext, "Вход в настройки", Toast.LENGTH_SHORT).show()
                 }
                 R.id.exercises -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment())
                         .commit()
-                    Toast.makeText(applicationContext, "Вход в Упражнения", Toast.LENGTH_SHORT).show()
                 }
                 R.id.addexercises -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesAddFragment())
@@ -69,7 +65,6 @@ class UserActivity : AppCompatActivity() {
                     auth.signOut()
                     getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").apply()
                     startActivity(Intent(this, StartActivity::class.java))
-                    Toast.makeText(applicationContext, "Вход в Упражнения", Toast.LENGTH_SHORT).show()
                 }
 
             }
