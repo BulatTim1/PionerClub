@@ -23,11 +23,11 @@ class ExercisesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val root: View = inflater.inflate(R.layout.fragment_exercises, container, false)
         ExercisesRecyclerView = root.findViewById(R.id.exerciseslist)
         val mymanag: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        ExercisesRecyclerView.setLayoutManager(mymanag)
+        ExercisesRecyclerView.layoutManager = mymanag
         //ExercisesRecyclerView.layoutManager = LinearLayoutManager(this)
         ExercisesRecyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf<Exercises>()
@@ -50,7 +50,7 @@ class ExercisesFragment : Fragment() {
                         val exer = userSnapshot.getValue(Exercises::class.java)
                         userArrayList.add(exer!!)
                     }
-                    ExercisesRecyclerView.adapter = ExercisesAdapter(userArrayList)
+                    ExercisesRecyclerView.adapter = ExercisesAdapter(userArrayList, requireActivity())
                 }
             }
 
