@@ -55,8 +55,8 @@
         <Button
             android:id="@+id/continue_exercise_btn"
             style="@style/Theme.MaterialComponents.Light.NoActionBar"
-            android:layout_width="160dp"
-            android:layout_height="72dp"
+            android:layout_width="158dp"
+            android:layout_height="70dp"
             android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
             android:background="@drawable/purple_button"
@@ -88,8 +88,8 @@
 
         <Button
             android:id="@+id/diary_btn"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
             android:layout_marginTop="4dp"
             android:background="#00FFFFFF"
             app:layout_constraintStart_toStartOf="@+id/continue_exercise_btn"
@@ -117,8 +117,8 @@
 
         <Button
             android:id="@+id/messenger_btn"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
             android:layout_marginTop="4dp"
             android:background="#00FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/continue_exercise_btn"
