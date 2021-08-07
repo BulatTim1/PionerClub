@@ -310,54 +310,44 @@
             app:layout_constraintStart_toStartOf="@+id/imageView11"
             app:layout_constraintTop_toBottomOf="@+id/imageView12" />
 
-        <Button
-            style="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:id="@+id/button5"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/blue_light_btn"
-            android:text="Дневник"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
-        <Button
-            style="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:id="@+id/button6"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:background="@drawable/blue_light_btn"
-            android:text="Мессенжер"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button5" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="260dp"
+            android:layout_marginTop="32dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView11"
+            tools:layout_editor_absoluteX="0dp">
 
-        <Button
-            style="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:id="@+id/button7"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:background="@drawable/blue_light_btn"
-            android:text="Упражнения"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button6" />
+            <Button
+                android:id="@+id/button10"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/blue_light_btn"
+                android:text="Дневник" />
 
-        <Button
-            style="@style/Theme.AppCompat.DayNight.NoActionBar"
-            android:id="@+id/button8"
-            android:layout_width="0dp"
-            android:layout_height="65dp"
-            android:background="@drawable/blue_light_btn"
-            android:text="Настройки"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button7" />
+            <Button
+                android:id="@+id/button11"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/blue_light_btn"
+                android:text="Мессенжер"/>
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/blue_light_btn"
+                android:text="Упражнения" />
+
+            <Button
+                android:id="@+id/button13"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@drawable/blue_light_btn"
+                android:text="Настройки" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
