@@ -14,7 +14,7 @@ import com.pioner.fragments.*
 class UserActivity : AppCompatActivity() {
 
     private lateinit var toggle : ActionBarDrawerToggle
-    private lateinit var binding: ActivityUserBinding
+    private lateinit var b: ActivityUserBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val uid = getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
@@ -24,16 +24,16 @@ class UserActivity : AppCompatActivity() {
             )
         }
         super.onCreate(savedInstanceState)
-        binding = ActivityUserBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        b = ActivityUserBinding.inflate(layoutInflater)
+        setContentView(b.root)
         val auth = FirebaseAuth.getInstance()
-        toggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
-        binding.drawerLayout.addDrawerListener(toggle)
+        toggle = ActionBarDrawerToggle(this, b.drawerLayout, R.string.open, R.string.close)
+        b.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment())
             .commit()
-        binding.navView.setNavigationItemSelectedListener {
+        b.navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment())

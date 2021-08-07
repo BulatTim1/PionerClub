@@ -1,19 +1,31 @@
 package com.pioner
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
 import com.pioner.fragments.AddRationFragment
 import com.pioner.fragments.ExercisesInformation
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.content.ContextCompat.startActivity
 
-class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>) : RecyclerView.Adapter<ExercisesAdapter.MyViewHolder>() {
+
+
+
+
+
+
+class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>, private val activity: Activity) : RecyclerView.Adapter<ExercisesAdapter.MyViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -46,8 +58,11 @@ class ExercisesAdapter(private val exerciseslist: ArrayList<Exercises>) : Recycl
                 args.putString("linkExec", linkEx.text.toString())
                 val newFragment = ExercisesInformation()
                 newFragment.setArguments(args)
-
-                    //FragmentManager.beginTransaction().replace(R.layout.fragment_exercises, ExercisesInformation()).commit()
+                val videoId = linkEx.text.toString().replace("https://www.youtube.com/watch?v=", "")
+                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:$videoId"))
+                intent.putExtra("VIDEO_ID", videoId)
+                itemView.context.startActivity(intent)
+//                itemView.context.startActivity(itemView.context.packageManager.getLaunchIntentForPackage("com.google.android.youtube"))
             }
         }
     }

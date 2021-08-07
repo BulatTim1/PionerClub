@@ -314,6 +314,7 @@
             android:layout_height="260dp"
             android:layout_marginTop="32dp"
             android:orientation="vertical"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/physical_data_card"
             tools:layout_editor_absoluteX="0dp">
@@ -330,7 +331,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
-                android:text="Мессенжер"/>
+                android:text="Мессенжер" />
 
             <Button
                 android:id="@+id/exerc_main_btn"
