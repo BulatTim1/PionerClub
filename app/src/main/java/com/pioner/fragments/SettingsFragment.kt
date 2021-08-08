@@ -17,7 +17,8 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_settings, container, false)
-        val changePass = root.findViewById<Button>(R.id.change_pass)
+        val changePass = root.findViewById<Button>(R.id.change_pass2)
+        val changeName = root.findViewById<Button>(R.id.change_Name)
         val auth = Firebase.auth
         changePass.setOnClickListener {
             auth.sendPasswordResetEmail(auth.currentUser?.email.toString()).addOnSuccessListener {
@@ -25,6 +26,10 @@ class SettingsFragment : Fragment() {
             }.addOnFailureListener {
                 Toast.makeText(context, it.localizedMessage, Toast.LENGTH_LONG).show()
             }
+        }
+        changeName.setOnClickListener(){
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, ChangeNameFragment()).addToBackStack( "login" )
+                .commit()
         }
         return root
     }
