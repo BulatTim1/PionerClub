@@ -16,9 +16,10 @@
             android:id="@+id/squareBarView"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:layout_marginStart="36dp"
             android:layout_marginTop="28dp"
             android:src="@drawable/background_button_log_reg"
+            app:layout_constraintEnd_toStartOf="@+id/continue_exercise_btn"
+            app:layout_constraintHorizontal_bias="0.552"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,13 +58,13 @@
             style="@style/Theme.MaterialComponents.Light.NoActionBar"
             android:layout_width="158dp"
             android:layout_height="70dp"
-            android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
+            android:layout_marginEnd="36dp"
             android:background="@drawable/purple_button"
             android:text="Продолжить упражнения"
             android:textColor="@color/white"
             android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@+id/squareBarView"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
@@ -328,7 +329,7 @@
             <Button
                 android:id="@+id/diary_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/blue_light_btn"
                 android:text="Дневник"
                 android:textAllCaps="false"
@@ -337,7 +338,7 @@
             <Button
                 android:id="@+id/mess_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/blue_light_btn"
                 android:text="Мессенжер"
                 android:textAllCaps="false"
@@ -346,7 +347,7 @@
             <Button
                 android:id="@+id/exerc_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/blue_light_btn"
                 android:text="Упражнения"
                 android:textAllCaps="false"
@@ -355,7 +356,7 @@
             <Button
                 android:id="@+id/setting_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="match_parent"
                 android:background="@drawable/blue_light_btn"
                 android:text="Настройки"
                 android:textAllCaps="false"
