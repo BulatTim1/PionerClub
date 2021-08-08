@@ -1,6 +1,7 @@
 package com.pioner.fragments
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +11,8 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
+import com.pioner.MeasurementClass
 import com.pioner.R
 
 private lateinit var dbref: DatabaseReference
@@ -37,11 +39,7 @@ class MainPageStudentFragment : Fragment() {
         var tipDay : TextView = root.findViewById(R.id.tipDayTextView)
         var MassImage : ImageView = root.findViewById(R.id.MassImageView)
 
-
-//        val rationList : List<Int> = getRation()
-//        massView.text = rationList[1].toString()
-//        heightView.text = rationList[2].toString()
-//        calView.text = rationList[3].toString()
+        getRation(massView, heightView, calView)
 
         diaryDownBtn.setOnClickListener{
             parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
@@ -84,39 +82,38 @@ class MainPageStudentFragment : Fragment() {
         Text.text = "Завершено упражнений $strProgress"
     }
 
-//    private fun getRation(): List<Int> {
-//        val uid: String =
-//            requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-//                .getString("uid", "")
-//                .toString()
-//        dbref = FirebaseDatabase.getInstance().getReference("users").child(uid).child("measurements")
-//
-//        var RationArrayList = arrayListOf<MeasurementClass>();
-//
-//        dbref.addValueEventListener(object : ValueEventListener {
-//            override fun onDataChange(snapshot: DataSnapshot) {
-//                if(snapshot.exists()) {
-//                    for (userSnapshot in snapshot.children) {
-//                        val measur = userSnapshot.getValue(MeasurementClass::class.java)
-//                        RationArrayList.add(measur!!)
-//
-//                    }
-//                }
-//            }
-//            override fun onCancelled(error: DatabaseError) {
-//            }
-//        })
-//
-//        val mass: Int = RationArrayList.last().mass - RationArrayList.first().mass
-//        val height: Int = RationArrayList.last().height - RationArrayList.first().height
-//        var cal: Int = 0
-//        for ((index, element) in RationArrayList.withIndex()) {
-//            cal += element.calories
-//        }
-//        cal /= RationArrayList.size
-//
-//        return listOf(mass, height, cal)
-//
-//    }
+    private fun getRation(massView : TextView, heightView : TextView, calView : TextView) {
+        var RationArrayList = arrayListOf<MeasurementClass>()
+        val uid: String =
+            requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                .getString("uid", "")
+                .toString()
+        dbref = FirebaseDatabase.getInstance().getReference("users").child(uid).child("measurements")
+        dbref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SetTextI18n")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()) {
+                    for (userSnapshot in snapshot.children) {
+                        val measur = userSnapshot.getValue(MeasurementClass::class.java)
+                        RationArrayList.add(measur!!)
+
+                    }
+                    val mass: Int = RationArrayList.last().mass - RationArrayList.first().mass
+                    val height: Int = RationArrayList.last().height - RationArrayList.first().height
+                    var cal: Int = 0
+                    for ((index, element) in RationArrayList.withIndex()) {
+                        cal += element.calories
+                    }
+                    cal /= RationArrayList.size
+                    massView.text = "$mass кг"
+                    heightView.text = "$height см"
+                    calView.text = "$cal ккал"
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
+    }
 
 }
