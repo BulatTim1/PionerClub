@@ -76,17 +76,6 @@ class UserActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-//        if (supportFragmentManager.fragments.size != 0) super.onBackPressed()
-//        else {
-//            val intent = Intent(applicationContext, StartActivity::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
-//            intent.putExtra("EXIT", true)
-//            startActivity(intent)
-//        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(toggle.onOptionsItemSelected(item)){
             return true

@@ -17,12 +17,13 @@ class ExercisesForTrainerFragment : Fragment() {
     private lateinit var dbref : DatabaseReference
     private lateinit var exercisesRecyclerView : RecyclerView
     private lateinit var userArrayList: ArrayList<Exercises>
-
+    var exer: ArrayList<String> = ArrayList()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_exercise_for_trainer, container, false)
+
         exercisesRecyclerView = root.findViewById(R.id.exercise_trainer_list)
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         exercisesRecyclerView.layoutManager = layoutManager
@@ -50,5 +51,9 @@ class ExercisesForTrainerFragment : Fragment() {
             }
             override fun onCancelled(error: DatabaseError) {}
         })
+    }
+    fun addArr(nameExe:String?){
+        exer.add(nameExe.toString())
+        println(exer)
     }
 }

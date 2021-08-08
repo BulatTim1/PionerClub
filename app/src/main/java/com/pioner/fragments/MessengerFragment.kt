@@ -14,10 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.pioner.Message
@@ -63,6 +60,7 @@ class MessengerFragment : Fragment() {
             trainerName = it.value.toString()
         }
         title.text = trainerName
+        updateDB(db, msgList)
         btn.setOnClickListener {
             if (msg.text.isEmpty()) Toast.makeText(context, "Пустое сообщение", Toast.LENGTH_LONG)
                 .show()
@@ -71,50 +69,45 @@ class MessengerFragment : Fragment() {
                     user = uid, msg = msg.text.toString()
                 )
                 db.reference.child("messages").child(uidTrainer).child(uid).push()
-                    //table.child("exercises").child("Standart").push()
                     .setValue(message).addOnSuccessListener {
                         Toast.makeText(context, "Данные внесены", Toast.LENGTH_LONG).show()
                     }
                 msg.text.clear()
-                msg.text.clear()
-                updateDB(msgList)
+                updateDB(db, msgList)
             }
         }
-        updateDB(msgList)
         return root
     }
 
-    private fun updateDB(msgList: RecyclerView) {
-        val db = Firebase.database
+    private fun updateDB(db: FirebaseDatabase, msgList: RecyclerView){
         val msgRef: DatabaseReference = db.getReference("messages/${uidTrainer}/${uid}")
         val msgDBList: ArrayList<Message> = arrayListOf()
         msgRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (userSnapshot in snapshot.children) {
-                        val msg = userSnapshot.getValue(Message::class.java)
-                        if (msg != null) {
-                            when (msg.user) {
-                                uid -> msg.user = userName
-                                uidTrainer -> msg.user = trainerName
+                        val msgDB = userSnapshot.getValue(Message::class.java)
+                        if (msgDB != null) {
+                            when (msgDB.user) {
+                                uid -> msgDB.user = userName
+                                uidTrainer -> msgDB.user = trainerName
                                 else -> {
-                                    db.getReference("users/${msg.user}/name").get()
-                                        .addOnSuccessListener {
-                                            userName = it.value.toString()
+                                    db.getReference("users/${msgDB.user}/name").get()
+                                        .addOnSuccessListener { name ->
+                                            userName = name.value.toString()
                                         }
                                 }
                             }
-                            msgDBList.add(msg)
+                            msgDBList.add(msgDB)
                         }
                     }
                     val layoutManager =
-                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
                     msgList.layoutManager = layoutManager
                     msgList.setHasFixedSize(true)
                     msgList.adapter = MessengerAdapter(msgDBList)
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {}
         })
     }
