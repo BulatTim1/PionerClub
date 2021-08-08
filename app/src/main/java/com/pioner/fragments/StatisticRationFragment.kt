@@ -22,12 +22,12 @@ class StatisticRationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val root: View = inflater.inflate(R.layout.fragment_statistic_ration, container, false)
         RationRecyclerView = root.findViewById(R.id.statictic_recycler)
-        var addRation : Button = root.findViewById(R.id.go_ration_add_btn)
-        val ration_statistic: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        RationRecyclerView.setLayoutManager(ration_statistic)
+        val addRation : Button = root.findViewById(R.id.go_ration_add_btn)
+        val rationStatistic: RecyclerView.LayoutManager = LinearLayoutManager(context)
+        RationRecyclerView.layoutManager = rationStatistic
         RationRecyclerView.setHasFixedSize(true)
         RationArrayList = arrayListOf<MeasurementClass>()
         getRationData()
