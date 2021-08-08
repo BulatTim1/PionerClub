@@ -73,7 +73,7 @@ class MainPageStudentFragment : Fragment() {
                 .commit()
         }
 
-        setProgress(57, progressBar, progressText)
+        setProgress( (0..100).random() , progressBar, progressText)
         return root
     }
 
