@@ -10,14 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Настройки приложения"
+            android:textColor="#6588C2"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/change_pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Поменять пароль"
+            android:background="@drawable/blue_80_back"
+            android:padding="15dp"
+            android:paddingStart="35dp"
+            android:paddingEnd="35dp"
+            android:text="Сменить пароль"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.107" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
