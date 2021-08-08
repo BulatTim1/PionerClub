@@ -60,7 +60,7 @@
             tools:ignore="HardcodedText" />
 
         <Button
-            android:id="@+id/complete_recovery_btn"
+            android:id="@+id/change_name_btn"
             android:layout_width="541px"
             android:layout_height="135px"
             android:layout_marginTop="128dp"
