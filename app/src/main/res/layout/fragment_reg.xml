@@ -29,7 +29,7 @@
             android:id="@+id/reg_name"
             android:layout_width="280dp"
             android:layout_height="40dp"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/background_input_log_reg"
             android:ems="10"
             android:gravity="center"
@@ -63,11 +63,11 @@
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:autofillHints="emailAddress"
-            android:inputType="textEmailAddress"
             android:background="@drawable/background_input_log_reg"
             android:ems="10"
             android:gravity="center"
             android:hint="Почта"
+            android:inputType="textEmailAddress"
             android:textColorHint="#93ABD2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -109,7 +109,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reg_cont"
+            app:layout_constraintTop_toBottomOf="@+id/reg_pass"
             tools:ignore="HardcodedText" />
 
         <Button
@@ -123,15 +123,15 @@
             android:textColor="#93ABD2"
             android:textSize="30px"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="@+id/reg_pass"
-            app:layout_constraintTop_toBottomOf="@+id/reg_pass"
+            app:layout_constraintEnd_toEndOf="@+id/trainer_recode"
+            app:layout_constraintTop_toBottomOf="@+id/trainer_recode"
             tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/reg_cont"
             android:layout_width="541px"
             android:layout_height="135px"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="76dp"
             android:background="@drawable/background_button_log_reg"
             android:text="Продолжить"
             android:textAllCaps="false"
@@ -140,7 +140,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reg_pass"
+            app:layout_constraintTop_toBottomOf="@+id/trainer_recode"
             tools:ignore="HardcodedText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
