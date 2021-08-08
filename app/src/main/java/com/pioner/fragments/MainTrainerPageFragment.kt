@@ -32,7 +32,6 @@ class MainTrainerPageFragment : Fragment() {
         val settingDownBtn: Button = root.findViewById(R.id.setting_main_btn)
         val messDownBtn: Button = root.findViewById(R.id.mess_main_btn)
         val exercDownBtn: Button = root.findViewById(R.id.exerc_main_btn)
-        val exercTopBtn: Button = root.findViewById(R.id.continue_exercise_btn)
         val messengerTopBtn: Button = root.findViewById(R.id.messenger_btn)
         val massView : TextView = root.findViewById(R.id.massMainView)
         val heightView : TextView = root.findViewById(R.id.heightMainView)
@@ -45,31 +44,27 @@ class MainTrainerPageFragment : Fragment() {
         getRation(massView, heightView, calView, massImage, heightImage, calImage)
         getTipDay(tipDay)
         diaryDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_trainer_container, StatisticRationFragment())
+            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, StatisticRationFragment())
                 .commit()
         }
         diaryTopBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_trainer_container, StatisticRationFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, StatisticRationFragment()).addToBackStack(null)
                 .commit()
         }
         settingDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_trainer_container, SettingsFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, SettingsFragment()).addToBackStack(null)
                 .commit()
         }
         messDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_trainer_container, MessengerFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
         exercDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_trainer_container, ExercisesFragment()).addToBackStack(null)
-                .commit()
-        }
-        exercTopBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_trainer_container, ExercisesFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesFragment()).addToBackStack(null)
                 .commit()
         }
         messengerTopBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_trainer_container, MessengerFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
 

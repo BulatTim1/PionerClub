@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawerTrainerLayout"
+    android:id="@+id/drawerLayout"
     tools:context=".TrainerActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,13 +19,9 @@
                     tools:layout="@layout/fragment_messenger" />-->
 
         <FrameLayout
-            android:id="@+id/user_trainer_container"
+            android:id="@+id/trainer_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.navigation.NavigationView

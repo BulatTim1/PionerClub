@@ -329,7 +329,7 @@
             <Button
                 android:id="@+id/diary_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
                 android:text="Дневник"
                 android:textAllCaps="false"
@@ -338,7 +338,7 @@
             <Button
                 android:id="@+id/mess_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
                 android:text="Мессенжер"
                 android:textAllCaps="false"
@@ -347,7 +347,7 @@
             <Button
                 android:id="@+id/exerc_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
                 android:text="Упражнения"
                 android:textAllCaps="false"
@@ -356,7 +356,7 @@
             <Button
                 android:id="@+id/setting_main_btn"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="65dp"
                 android:background="@drawable/blue_light_btn"
                 android:text="Настройки"
                 android:textAllCaps="false"
