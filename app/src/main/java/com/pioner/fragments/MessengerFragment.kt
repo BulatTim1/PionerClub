@@ -49,11 +49,12 @@ class MessengerFragment : Fragment() {
         }
         uidTrainer = "viAdnQEQyFNcHJK4mbgRM5wfGpD3"
         db.getReference("users/${uid}/uid_trainer").get().addOnCompleteListener {
-            if (it.isSuccessful) uidTrainer = it.result.toString()
+            if (it.isSuccessful) uidTrainer = it.result.value.toString()
         }
-        if (uidTrainer == ""){
+        if (uidTrainer == "") {
             Toast.makeText(context, "Настройте тренера", Toast.LENGTH_LONG).show()
-            requireActivity().supportFragmentManager.beginTransaction().replace(R.id.user_container, MainPageStudentFragment()).commit()
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.user_container, MainPageStudentFragment()).commit()
         }
         db.getReference("users/${uid}/name").get().addOnSuccessListener {
             userName = it.value.toString()
@@ -63,17 +64,18 @@ class MessengerFragment : Fragment() {
         }
         title.text = trainerName
         btn.setOnClickListener {
-            if (msg.text.isEmpty()) Toast.makeText(context, "Пустое сообщение", Toast.LENGTH_LONG).show()
+            if (msg.text.isEmpty()) Toast.makeText(context, "Пустое сообщение", Toast.LENGTH_LONG)
+                .show()
             else {
                 val message = Message(
                     user = uid, msg = msg.text.toString()
                 )
                 db.reference.child("messages").child(uidTrainer).child(uid).push()
-                        //table.child("exercises").child("Standart").push()
-                        .setValue(message).addOnSuccessListener {
-                            Toast.makeText(context, "Данные внесены", Toast.LENGTH_LONG).show()
-                        }
-                    msg.text.clear()
+                    //table.child("exercises").child("Standart").push()
+                    .setValue(message).addOnSuccessListener {
+                        Toast.makeText(context, "Данные внесены", Toast.LENGTH_LONG).show()
+                    }
+                msg.text.clear()
                 msg.text.clear()
                 updateDB(msgList)
             }
@@ -82,35 +84,38 @@ class MessengerFragment : Fragment() {
         return root
     }
 
-    private fun updateDB(msgList: RecyclerView){
+    private fun updateDB(msgList: RecyclerView) {
         val db = Firebase.database
         val msgRef: DatabaseReference = db.getReference("messages/${uidTrainer}/${uid}")
         val msgDBList: ArrayList<Message> = arrayListOf()
         msgRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    for(userSnapshot in snapshot.children){
+                if (snapshot.exists()) {
+                    for (userSnapshot in snapshot.children) {
                         val msg = userSnapshot.getValue(Message::class.java)
-                        if(msg != null) {
+                        if (msg != null) {
                             when (msg.user) {
                                 uid -> msg.user = userName
                                 uidTrainer -> msg.user = trainerName
                                 else -> {
-                                    db.getReference("users/${msg.user}/name").get().addOnSuccessListener {
-                                        userName = it.value.toString()
-                                    }
+                                    db.getReference("users/${msg.user}/name").get()
+                                        .addOnSuccessListener {
+                                            userName = it.value.toString()
+                                        }
                                 }
                             }
                             msgDBList.add(msg)
                         }
                     }
-                    val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
+                    val layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
                     msgList.layoutManager = layoutManager
                     msgList.setHasFixedSize(true)
                     msgList.adapter = MessengerAdapter(msgDBList)
                 }
             }
-            override fun onCancelled(error: DatabaseError) {  }
+
+            override fun onCancelled(error: DatabaseError) {}
         })
     }
 }
