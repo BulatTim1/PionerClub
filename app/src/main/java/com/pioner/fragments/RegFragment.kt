@@ -35,6 +35,7 @@ class RegFragment : Fragment() {
         val email: EditText = root.findViewById(R.id.reg_email)
         val pass: EditText = root.findViewById(R.id.reg_pass)
         val reg: Button = root.findViewById(R.id.reg_cont)
+        val regcode: Button = root.findViewById(R.id.trainer_regcode)
         val toLog: Button = root.findViewById(R.id.return_log_btn)
         val auth = FirebaseAuth.getInstance()
         val table: DatabaseReference =

@@ -94,6 +94,24 @@
             app:layout_constraintTop_toBottomOf="@+id/reg_email"
             tools:ignore="HardcodedText" />
 
+        <EditText
+            android:id="@+id/trainer_recode"
+            android:layout_width="280dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:autofillHints="password"
+            android:background="@drawable/background_input_log_reg"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="Код (Для тренера)"
+            android:inputType="textPassword"
+            android:textColorHint="#93ABD2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reg_cont"
+            tools:ignore="HardcodedText" />
+
         <Button
             android:id="@+id/return_log_btn"
             android:layout_width="wrap_content"
