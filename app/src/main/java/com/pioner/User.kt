@@ -1,6 +1,5 @@
 package com.pioner
 
-import android.widget.EditText
 import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties

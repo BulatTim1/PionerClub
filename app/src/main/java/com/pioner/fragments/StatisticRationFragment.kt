@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.core.view.isEmpty
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,18 +23,18 @@ class StatisticRationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val root: View = inflater.inflate(R.layout.fragment_statistic_ration, container, false)
         RationRecyclerView = root.findViewById(R.id.statictic_recycler)
-        var addRation : Button = root.findViewById(R.id.go_ration_add_btn)
+        val addRation : Button = root.findViewById(R.id.go_ration_add_btn)
         var emptyText : TextView = root.findViewById(R.id.rationTextView)
-        val ration_statistic: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        RationRecyclerView.setLayoutManager(ration_statistic)
+        val rationStatistic: RecyclerView.LayoutManager = LinearLayoutManager(context)
+        RationRecyclerView.layoutManager = rationStatistic
         RationRecyclerView.setHasFixedSize(true)
         RationArrayList = arrayListOf<MeasurementClass>()
         getRationData(emptyText)
         addRation.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment()).commit()
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment()).addToBackStack(null).commit()
         }
         return root
     }
