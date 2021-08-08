@@ -3,17 +3,17 @@ package com.pioner
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
 
 class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
     RecyclerView.Adapter<ExercisesTrainerAdapter.MyViewHolder>() {
-    var Exer: ArrayList<String> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView =
@@ -34,7 +34,7 @@ class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
 
     @SuppressLint("ResourceType")
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val Exer: MutableList<String> = ArrayList()
+        val exer: MutableList<String> = ArrayList()
         val nameExT: TextView = itemView.findViewById(R.id.exercise_title_trainer)
         val descriptionExT: TextView = itemView.findViewById(R.id.exercise_body_trainer)
         private val btnVT: Button = itemView.findViewById(R.id.viewVideoBtnTrainer)
@@ -55,14 +55,14 @@ class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
                 itemView.context.startActivity(intent)
             }
             btnT.setOnClickListener{
-                var NameExe = nameExT.text
+                val nameExe = nameExT.text
                 Toast.makeText(
                     itemView.context,
-                    NameExe.toString(),
+                    nameExe.toString(),
                     Toast.LENGTH_SHORT
                 ).show()
-                Exer.add(NameExe.toString())
-                System.out.println(Exer)
+                exer.add(nameExe.toString())
+                println(exer)
                 //нада в массив занести, а в следующем фрагменте вывести в виде listview
             // и сбоку добавить мелкие EditText для количества выполнения упражнений
             }

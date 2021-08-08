@@ -71,8 +71,6 @@ class UserActivity : AppCompatActivity() {
                     getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").apply()
                     startActivity(Intent(this, StartActivity::class.java))
                 }
-
-
             }
             true
         }
