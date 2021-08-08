@@ -169,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Cовет дня"
+            android:text="Cоветы дня"
             android:textColor="#767676"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/physical_data_card"

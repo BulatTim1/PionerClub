@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.database.*
 import com.pioner.MeasurementClass
 import com.pioner.R
+import java.util.*
 
 private lateinit var dbref: DatabaseReference
 
@@ -36,13 +37,13 @@ class MainPageStudentFragment : Fragment() {
         val massView : TextView = root.findViewById(R.id.massMainView)
         val heightView : TextView = root.findViewById(R.id.heightMainView)
         val calView : TextView = root.findViewById(R.id.ccalMainView)
-        var tipDay : TextView = root.findViewById(R.id.tipDayTextView)
-        var massImage : ImageView = root.findViewById(R.id.MassImageView)
-        var heightImage : ImageView = root.findViewById(R.id.HeightImageView)
-        var calImage : ImageView = root.findViewById(R.id.CcalImageView)
+        val tipDay : TextView = root.findViewById(R.id.tipDayTextView)
+        val massImage : ImageView = root.findViewById(R.id.MassImageView)
+        val heightImage : ImageView = root.findViewById(R.id.HeightImageView)
+        val calImage : ImageView = root.findViewById(R.id.CcalImageView)
 
-        getRation(massView, heightView, calView, massImage, heightImage, calImage,)
-
+        getRation(massView, heightView, calView, massImage, heightImage, calImage)
+        getTipDay(tipDay)
         diaryDownBtn.setOnClickListener{
             parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
                 .commit()
@@ -130,6 +131,32 @@ class MainPageStudentFragment : Fragment() {
                         }
                         else -> heightImage.setImageResource(R.drawable.without_changes_ration)
                     };
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
+    }
+
+    private fun getTipDay( tipDay : TextView) {
+        val tipArrayList = arrayListOf<String>()
+        val uid: String =
+            requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                .getString("uid", "")
+                .toString()
+        dbref = FirebaseDatabase.getInstance().getReference("tips")
+        dbref.addValueEventListener(object : ValueEventListener {
+            @SuppressLint("SetTextI18n")
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()) {
+                    for (userSnapshot in snapshot.children) {
+                        val tip = userSnapshot.getValue(String()::class.java)
+                        tipArrayList.add(tip!!)
+
+                    }
+                    val random: String = tipArrayList[Random().nextInt(tipArrayList.size)]
+                    tipDay.text = random
                 }
             }
             override fun onCancelled(error: DatabaseError) {
