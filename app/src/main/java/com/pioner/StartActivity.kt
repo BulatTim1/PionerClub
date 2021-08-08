@@ -9,7 +9,7 @@ class StartActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (intent.getBooleanExtra("EXIT", false)) {
-            finish();
+            finish()
         }
         if (getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "") != "") startActivity(
             Intent(this, UserActivity::class.java)

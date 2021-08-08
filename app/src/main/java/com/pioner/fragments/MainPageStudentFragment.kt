@@ -115,27 +115,27 @@ class MainPageStudentFragment : Fragment() {
                         if (mass != null) {
                             when {
                                 mass > 0 -> {
-                                    massImage.setImageResource(R.drawable.rise_ration);
+                                    massImage.setImageResource(R.drawable.rise_ration)
                                     massView.text = "+$mass кг"
                                 }
                                 mass < 0 -> {
-                                    massImage.setImageResource(R.drawable.downgrade_ration);
+                                    massImage.setImageResource(R.drawable.downgrade_ration)
                                 }
                                 else -> massImage.setImageResource(R.drawable.without_changes_ration)
                             }
-                        };
+                        }
                         if (height != null) {
                             when {
                                 height > 0 -> {
-                                    heightImage.setImageResource(R.drawable.rise_ration);
+                                    heightImage.setImageResource(R.drawable.rise_ration)
                                     heightView.text = "+$height см"
                                 }
                                 height < 0 -> {
-                                    heightImage.setImageResource(R.drawable.downgrade_ration);
+                                    heightImage.setImageResource(R.drawable.downgrade_ration)
                                 }
                                 else -> heightImage.setImageResource(R.drawable.without_changes_ration)
                             }
-                        };
+                        }
                     }
 
                 }
