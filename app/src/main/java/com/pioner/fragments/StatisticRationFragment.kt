@@ -18,21 +18,21 @@ import com.pioner.R
 
 class StatisticRationFragment : Fragment() {
     private lateinit var dbref: DatabaseReference
-    private lateinit var RationRecyclerView: RecyclerView
-    private lateinit var RationArrayList: ArrayList<MeasurementClass>
+    private lateinit var rationRecyclerView: RecyclerView
+    private lateinit var rationArrayList: ArrayList<MeasurementClass>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_statistic_ration, container, false)
-        RationRecyclerView = root.findViewById(R.id.statictic_recycler)
+        rationRecyclerView = root.findViewById(R.id.statictic_recycler)
         val addRation : Button = root.findViewById(R.id.go_ration_add_btn)
-        var emptyText : TextView = root.findViewById(R.id.rationTextView)
+        val emptyText : TextView = root.findViewById(R.id.rationTextView)
         val rationStatistic: RecyclerView.LayoutManager = LinearLayoutManager(context)
-        RationRecyclerView.layoutManager = rationStatistic
-        RationRecyclerView.setHasFixedSize(true)
-        RationArrayList = arrayListOf<MeasurementClass>()
+        rationRecyclerView.layoutManager = rationStatistic
+        rationRecyclerView.setHasFixedSize(true)
+        rationArrayList = arrayListOf()
         getRationData(emptyText)
         addRation.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment()).addToBackStack(null).commit()
@@ -51,11 +51,11 @@ class StatisticRationFragment : Fragment() {
                 if(snapshot.exists()){
                     for(userSnapshot in snapshot.children){
                         val measur = userSnapshot.getValue(MeasurementClass::class.java)
-                        RationArrayList.add(measur!!)
+                        rationArrayList.add(measur!!)
                     }
-                    RationRecyclerView.adapter = MeasurementAdapter(RationArrayList)
+                    rationRecyclerView.adapter = MeasurementAdapter(rationArrayList)
                 }
-                if(RationRecyclerView.isEmpty()){
+                if(rationRecyclerView.isEmpty()){
                     emptyText.visibility = View.VISIBLE
                 }
             }

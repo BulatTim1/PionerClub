@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">Pioner Club</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="MassRationString">Ваш вес:</string>
-    <string name="ManHeightRationString">Ваш рост:</string>
-    <string name="СaloriesTodayRationString">Сегодняшняя калорийность вашей пищи:</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="open">Open</string>
     <string name="close">Close</string>

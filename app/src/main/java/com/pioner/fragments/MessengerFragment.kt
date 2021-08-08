@@ -1,6 +1,5 @@
 package com.pioner.fragments
 
-import MessengerAdapter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -18,6 +17,7 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.pioner.Message
+import com.pioner.MessengerAdapter
 import com.pioner.R
 import com.pioner.StartActivity
 
@@ -44,7 +44,6 @@ class MessengerFragment : Fragment() {
             Toast.makeText(context, "Ошибка авторизации", Toast.LENGTH_LONG).show()
             startActivity(Intent(activity, StartActivity::class.java))
         }
-        uidTrainer = "viAdnQEQyFNcHJK4mbgRM5wfGpD3"
         db.getReference("users/${uid}/uid_trainer").get().addOnCompleteListener {
             if (it.isSuccessful) uidTrainer = it.result.value.toString()
         }

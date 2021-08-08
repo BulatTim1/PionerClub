@@ -13,12 +13,12 @@ class ConfirmationRegistrationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val root: View =
             inflater.inflate(R.layout.fragment_confirmation_registration, container, false)
-        val reg_end: Button = root.findViewById(R.id.reg_end)
+        val regEnd: Button = root.findViewById(R.id.reg_end)
         // Inflate the layout for this fragment
-        reg_end.setOnClickListener {
+        regEnd.setOnClickListener {
             parentFragmentManager.beginTransaction().replace(R.id.login_host, LoginFragment())
                 .commit()
         }
