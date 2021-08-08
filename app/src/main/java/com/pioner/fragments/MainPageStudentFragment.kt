@@ -37,9 +37,11 @@ class MainPageStudentFragment : Fragment() {
         val heightView : TextView = root.findViewById(R.id.heightMainView)
         val calView : TextView = root.findViewById(R.id.ccalMainView)
         var tipDay : TextView = root.findViewById(R.id.tipDayTextView)
-        var MassImage : ImageView = root.findViewById(R.id.MassImageView)
+        var massImage : ImageView = root.findViewById(R.id.MassImageView)
+        var heightImage : ImageView = root.findViewById(R.id.HeightImageView)
+        var calImage : ImageView = root.findViewById(R.id.CcalImageView)
 
-        getRation(massView, heightView, calView)
+        getRation(massView, heightView, calView, massImage, heightImage, calImage,)
 
         diaryDownBtn.setOnClickListener{
             parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
@@ -82,7 +84,7 @@ class MainPageStudentFragment : Fragment() {
         Text.text = "Завершено упражнений $strProgress"
     }
 
-    private fun getRation(massView : TextView, heightView : TextView, calView : TextView) {
+    private fun getRation(massView : TextView, heightView : TextView, calView : TextView, massImage : ImageView, heightImage : ImageView, calImage : ImageView) {
         var RationArrayList = arrayListOf<MeasurementClass>()
         val uid: String =
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
@@ -108,6 +110,26 @@ class MainPageStudentFragment : Fragment() {
                     massView.text = "$mass кг"
                     heightView.text = "$height см"
                     calView.text = "$cal ккал"
+                    when {
+                        mass > 0 -> {
+                            massImage.setImageResource(R.drawable.rise_ration);
+                            massView.text = "+ $mass кг"
+                        }
+                        mass < 0 -> {
+                            massImage.setImageResource(R.drawable.downgrade_ration);
+                        }
+                        else -> massImage.setImageResource(R.drawable.without_changes_ration)
+                    };
+                    when {
+                        height > 0 -> {
+                            heightImage.setImageResource(R.drawable.rise_ration);
+                            heightView.text = "+ $height см"
+                        }
+                        height < 0 -> {
+                            heightImage.setImageResource(R.drawable.downgrade_ration);
+                        }
+                        else -> heightImage.setImageResource(R.drawable.without_changes_ration)
+                    };
                 }
             }
             override fun onCancelled(error: DatabaseError) {
