@@ -30,7 +30,6 @@ class MessengerFragment : Fragment() {
     var userName = ""
     var uid = ""
     var uidTrainer = ""
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -63,6 +62,7 @@ class MessengerFragment : Fragment() {
             trainerName = it.value.toString()
         }
         title.text = trainerName
+
         btn.setOnClickListener {
             if (msg.text.isEmpty()) Toast.makeText(context, "Пустое сообщение", Toast.LENGTH_LONG)
                 .show()

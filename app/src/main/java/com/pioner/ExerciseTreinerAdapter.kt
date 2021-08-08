@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.pioner.fragments.ExercisesForTrainerFragment
 
 
 class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
@@ -20,7 +21,6 @@ class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
             LayoutInflater.from(parent.context).inflate(R.layout.exercise_item_for_trainer, parent, false)
         return MyViewHolder(itemView)
     }
-
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentitem = exerciseslist[position]
         holder.nameExT.text = currentitem.nameExec
@@ -34,7 +34,6 @@ class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
 
     @SuppressLint("ResourceType")
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val exer: MutableList<String> = ArrayList()
         val nameExT: TextView = itemView.findViewById(R.id.exercise_title_trainer)
         val descriptionExT: TextView = itemView.findViewById(R.id.exercise_body_trainer)
         private val btnVT: Button = itemView.findViewById(R.id.viewVideoBtnTrainer)
@@ -55,17 +54,25 @@ class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
                 itemView.context.startActivity(intent)
             }
             btnT.setOnClickListener{
+                var exerForTrein = ExercisesForTrainerFragment()
                 val nameExe = nameExT.text
-                Toast.makeText(
-                    itemView.context,
-                    nameExe.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
-                exer.add(nameExe.toString())
-                println(exer)
-                //нада в массив занести, а в следующем фрагменте вывести в виде listview
-            // и сбоку добавить мелкие EditText для количества выполнения упражнений
+                    Toast.makeText(
+                        itemView.context,
+                        nameExe.toString(),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    //demo(nameExe.toString())
+                    exerForTrein.addArr(nameExe.toString())
+
+            //нада в массив занести, а в следующем фрагменте вывести в виде listview
+                    // и сбоку добавить мелкие EditText для количества выполнения упражнений
             }
+        }
+
+        private fun demo(nameExe:String?) {
+            var exerForTrein = ExercisesForTrainerFragment()
+            exerForTrein.exer.add(nameExe.toString())
+            println(exerForTrein.exer)
         }
     }
 }
