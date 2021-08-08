@@ -82,7 +82,7 @@ class MessengerFragment : Fragment() {
     private fun updateDB(db: FirebaseDatabase, msgList: RecyclerView){
         val msgRef: DatabaseReference = db.getReference("messages/${uidTrainer}/${uid}")
         val msgDBList: ArrayList<Message> = arrayListOf()
-        msgRef.addValueEventListener(object : ValueEventListener {
+        val listener = object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (userSnapshot in snapshot.children) {
@@ -109,6 +109,7 @@ class MessengerFragment : Fragment() {
                 }
             }
             override fun onCancelled(error: DatabaseError) {}
-        })
+        }
+        msgRef.addValueEventListener(listener)
     }
 }
