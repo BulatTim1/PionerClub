@@ -81,7 +81,7 @@ class MainTrainerPageFragment : Fragment() {
     }
 
     private fun getRation(massView : TextView, heightView : TextView, calView : TextView, massImage : ImageView, heightImage : ImageView, calImage : ImageView) {
-        var RationArrayList = arrayListOf<MeasurementClass>()
+        val rationArrayList = arrayListOf<MeasurementClass>()
         val uid: String =
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 .getString("uid", "")
@@ -93,17 +93,17 @@ class MainTrainerPageFragment : Fragment() {
                 if(snapshot.exists()) {
                     for (userSnapshot in snapshot.children) {
                         val measur = userSnapshot.getValue(MeasurementClass::class.java)
-                        RationArrayList.add(measur!!)
+                        rationArrayList.add(measur!!)
 
                     }
-                    if(RationArrayList.isNotEmpty()){
-                        val mass: Int? = RationArrayList.last().mass - RationArrayList.first().mass
-                        val height: Int? = RationArrayList.last().height - RationArrayList.first().height
+                    if(rationArrayList.isNotEmpty()){
+                        val mass: Int = rationArrayList.last().mass - rationArrayList.first().mass
+                        val height: Int = rationArrayList.last().height - rationArrayList.first().height
                         var cal: Int = 0
-                        for ((index, element) in RationArrayList.withIndex()) {
+                        for (element in rationArrayList) {
                             cal += element.calories
                         }
-                        cal /= RationArrayList.size
+                        cal /= rationArrayList.size
                         massView.text = "$mass кг"
                         heightView.text = "$height см"
                         calView.text = "$cal ккал"
@@ -143,10 +143,6 @@ class MainTrainerPageFragment : Fragment() {
 
     private fun getTipDay( tipDay : TextView) {
         val tipArrayList = arrayListOf<String>()
-        val uid: String =
-            requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-                .getString("uid", "")
-                .toString()
         dbref = FirebaseDatabase.getInstance().getReference("tips")
         dbref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")

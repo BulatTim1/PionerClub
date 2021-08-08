@@ -23,7 +23,8 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/msg_body"
@@ -40,7 +41,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            tools:ignore="HardcodedText" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -50,7 +52,9 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/msg_user"
-            app:srcCompat="@drawable/line" />
+            app:srcCompat="@drawable/line"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

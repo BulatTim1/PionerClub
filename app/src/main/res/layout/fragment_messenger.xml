@@ -15,7 +15,8 @@
         android:text="Давид Давидов"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
 
     <EditText
         android:id="@+id/msgText"
@@ -34,7 +35,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/background_input_log_reg"/>
+        android:background="@drawable/background_input_log_reg"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/msgSend"
@@ -49,7 +51,8 @@
         android:background="@drawable/background_button_log_reg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/msgText" />
+        app:layout_constraintStart_toEndOf="@+id/msgText"
+        tools:ignore="HardcodedText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/msgs"

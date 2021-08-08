@@ -54,7 +54,7 @@ class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
                 itemView.context.startActivity(intent)
             }
             btnT.setOnClickListener{
-                var exerForTrein = ExercisesForTrainerFragment()
+                val exerForTrein = ExercisesForTrainerFragment()
                 val nameExe = nameExT.text
                     Toast.makeText(
                         itemView.context,
@@ -70,7 +70,7 @@ class ExercisesTrainerAdapter(private val exerciseslist: ArrayList<Exercises>) :
         }
 
         private fun demo(nameExe:String?) {
-            var exerForTrein = ExercisesForTrainerFragment()
+            val exerForTrein = ExercisesForTrainerFragment()
             exerForTrein.exer.add(nameExe.toString())
             println(exerForTrein.exer)
         }

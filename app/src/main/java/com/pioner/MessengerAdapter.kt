@@ -1,11 +1,11 @@
+package com.pioner
+
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.pioner.Message
-import com.pioner.R
 
 class MessengerAdapter(private val exerciseslist: ArrayList<Message>) : RecyclerView.Adapter<MessengerAdapter.MyViewHolder>() {
 

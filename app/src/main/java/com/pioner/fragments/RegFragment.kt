@@ -38,8 +38,7 @@ class RegFragment : Fragment() {
         val reg: Button = root.findViewById(R.id.reg_cont)
         val toLog: Button = root.findViewById(R.id.return_log_btn)
         val auth = FirebaseAuth.getInstance()
-        val table: DatabaseReference =
-            Firebase.database("https://pionerclub-54483-default-rtdb.europe-west1.firebasedatabase.app").reference
+        val table: DatabaseReference = Firebase.database.reference
 
 //        var adapter: ArrayAdapter? = ArrayList<String>
 //        trennerChoose.setAdapter()

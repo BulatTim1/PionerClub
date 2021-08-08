@@ -21,14 +21,15 @@
         android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView2"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/add_ration_btn"
             app:layout_constraintBottom_toBottomOf="@+id/go_ration_add_btn"
             app:layout_constraintEnd_toEndOf="@+id/go_ration_add_btn"
             app:layout_constraintStart_toStartOf="@+id/go_ration_add_btn"
-            app:layout_constraintTop_toTopOf="@+id/go_ration_add_btn" />
+            app:layout_constraintTop_toTopOf="@+id/go_ration_add_btn"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText" />
 
         <Button
             android:id="@+id/go_ration_add_btn"
@@ -51,7 +52,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:visibility="invisible"/>
+            android:visibility="invisible"
+            tools:ignore="HardcodedText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

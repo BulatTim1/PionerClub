@@ -16,24 +16,26 @@
 
 
         <ImageView
-            android:id="@+id/messenger_back_btn"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:src="@drawable/blue_light_btn"
             app:layout_constraintBottom_toBottomOf="@+id/messenger_btn"
             app:layout_constraintEnd_toEndOf="@+id/messenger_btn"
             app:layout_constraintStart_toStartOf="@+id/messenger_btn"
-            app:layout_constraintTop_toTopOf="@+id/messenger_btn" />
+            app:layout_constraintTop_toTopOf="@+id/messenger_btn"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText" />
 
         <ImageView
-            android:id="@+id/image_messenger"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/icon_messenger"
             app:layout_constraintBottom_toBottomOf="@+id/messenger_btn"
             app:layout_constraintEnd_toEndOf="@+id/messenger_btn"
             app:layout_constraintStart_toStartOf="@+id/messenger_btn"
-            app:layout_constraintTop_toTopOf="@+id/messenger_btn" />
+            app:layout_constraintTop_toTopOf="@+id/messenger_btn"
+            android:contentDescription="TODO"
+            tools:ignore="ContentDescription,HardcodedText" />
 
 
         <Button
@@ -60,7 +62,8 @@
                 android:background="@drawable/blue_light_btn"
                 android:text="Мессенжер"
                 android:textAllCaps="false"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/exerc_main_btn"
@@ -69,7 +72,8 @@
                 android:background="@drawable/blue_light_btn"
                 android:text="Упражнения"
                 android:textAllCaps="false"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
 
             <Button
                 android:id="@+id/setting_main_btn"
@@ -78,7 +82,8 @@
                 android:background="@drawable/blue_light_btn"
                 android:text="Настройки"
                 android:textAllCaps="false"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

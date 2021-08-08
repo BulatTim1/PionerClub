@@ -24,7 +24,8 @@
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/exercise_name"
@@ -41,7 +42,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            tools:ignore="HardcodedText" />
 
         <EditText
             android:id="@+id/exercise_body"
@@ -59,7 +61,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exercise_name" />
+            app:layout_constraintTop_toBottomOf="@+id/exercise_name"
+            tools:ignore="HardcodedText" />
 
 
         <EditText
@@ -78,7 +81,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exercise_body" />
+            app:layout_constraintTop_toBottomOf="@+id/exercise_body"
+            tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/exercise_save"
@@ -105,34 +109,35 @@
             android:textColor="#D6D6D6"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView15" />
+            app:layout_constraintTop_toBottomOf="@+id/textView15"
+            tools:ignore="HardcodedText" />
 
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Название"
             android:textColor="#D6D6D6"
             app:layout_constraintBottom_toTopOf="@+id/exercise_name"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            tools:ignore="HardcodedText" />
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Описание"
             android:textColor="#D6D6D6"
             app:layout_constraintBottom_toTopOf="@+id/exercise_body"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            tools:ignore="HardcodedText" />
 
         <TextView
-            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ссылка на YouTube"
             android:textColor="#D6D6D6"
             app:layout_constraintBottom_toTopOf="@+id/exercise_link"
-            app:layout_constraintStart_toStartOf="@+id/guideline2" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            tools:ignore="HardcodedText" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"

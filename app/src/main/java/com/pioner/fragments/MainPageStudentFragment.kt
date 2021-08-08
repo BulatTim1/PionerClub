@@ -86,7 +86,7 @@ class MainPageStudentFragment : Fragment() {
     }
 
     private fun getRation(massView : TextView, heightView : TextView, calView : TextView, massImage : ImageView, heightImage : ImageView, calImage : ImageView) {
-        var RationArrayList = arrayListOf<MeasurementClass>()
+        val rationArrayList = arrayListOf<MeasurementClass>()
         val uid: String =
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 .getString("uid", "")
@@ -98,43 +98,39 @@ class MainPageStudentFragment : Fragment() {
                 if(snapshot.exists()) {
                     for (userSnapshot in snapshot.children) {
                         val measur = userSnapshot.getValue(MeasurementClass::class.java)
-                        RationArrayList.add(measur!!)
+                        rationArrayList.add(measur!!)
 
                     }
-                    if(RationArrayList.isNotEmpty()){
-                        val mass: Int? = RationArrayList.last().mass - RationArrayList.first().mass
-                        val height: Int? = RationArrayList.last().height - RationArrayList.first().height
-                        var cal: Int = 0
-                        for ((index, element) in RationArrayList.withIndex()) {
+                    if(rationArrayList.isNotEmpty()){
+                        val mass: Int = rationArrayList.last().mass - rationArrayList.first().mass
+                        val height: Int = rationArrayList.last().height - rationArrayList.first().height
+                        var cal = 0
+                        for (element in rationArrayList) {
                             cal += element.calories
                         }
-                        cal /= RationArrayList.size
+                        cal /= rationArrayList.size
                         massView.text = "$mass кг"
                         heightView.text = "$height см"
                         calView.text = "$cal ккал"
-                        if (mass != null) {
-                            when {
-                                mass > 0 -> {
-                                    massImage.setImageResource(R.drawable.rise_ration)
-                                    massView.text = "+$mass кг"
-                                }
-                                mass < 0 -> {
-                                    massImage.setImageResource(R.drawable.downgrade_ration)
-                                }
-                                else -> massImage.setImageResource(R.drawable.without_changes_ration)
+                        when {
+                            mass > 0 -> {
+                                massImage.setImageResource(R.drawable.rise_ration)
+                                massView.text = "+$mass кг"
                             }
+                            mass < 0 -> {
+                                massImage.setImageResource(R.drawable.downgrade_ration)
+                            }
+                            else -> massImage.setImageResource(R.drawable.without_changes_ration)
                         }
-                        if (height != null) {
-                            when {
-                                height > 0 -> {
-                                    heightImage.setImageResource(R.drawable.rise_ration)
-                                    heightView.text = "+$height см"
-                                }
-                                height < 0 -> {
-                                    heightImage.setImageResource(R.drawable.downgrade_ration)
-                                }
-                                else -> heightImage.setImageResource(R.drawable.without_changes_ration)
+                        when {
+                            height > 0 -> {
+                                heightImage.setImageResource(R.drawable.rise_ration)
+                                heightView.text = "+$height см"
                             }
+                            height < 0 -> {
+                                heightImage.setImageResource(R.drawable.downgrade_ration)
+                            }
+                            else -> heightImage.setImageResource(R.drawable.without_changes_ration)
                         }
                     }
 
@@ -148,10 +144,6 @@ class MainPageStudentFragment : Fragment() {
 
     private fun getTipDay( tipDay : TextView) {
         val tipArrayList = arrayListOf<String>()
-        val uid: String =
-            requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-                .getString("uid", "")
-                .toString()
         dbref = FirebaseDatabase.getInstance().getReference("tips")
         dbref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")
