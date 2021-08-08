@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/profile"
+        android:title="Профиль" />
+    <item
+        android:id="@+id/messenger"
+        android:title="Мессенджер" />
+    <item
+        android:id="@+id/exercises"
+        android:title="Упражнения"
+        />
+    <item
+        android:id="@+id/exercise_treiner"
+        android:title="Дать задание Ученику" />
+    <item
+        android:id="@+id/addexercises"
+        android:title="Добавить упражнения"
+        />
+    <item
+        android:id="@+id/settings"
+        android:title="Настройки"
+        />
+    <item
+        android:id="@+id/logout"
+        android:title="Выйти"
+        />
+</menu>

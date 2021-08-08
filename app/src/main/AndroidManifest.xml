@@ -12,8 +12,12 @@
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.PionerClub">
+        <activity
+            android:name=".StartActivity"
+            android:exported="true" />
         <activity android:name=".UserActivity" />
-        <activity android:name=".StartActivity"
+        <activity
+            android:name=".TrainerActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
@@ -22,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
