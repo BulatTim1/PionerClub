@@ -9,7 +9,6 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.pioner.databinding.ActivityTrainerBinding
-import com.pioner.databinding.ActivityUserBinding
 import com.pioner.fragments.*
 
 class TrainerActivity : AppCompatActivity() {
@@ -28,42 +27,38 @@ class TrainerActivity : AppCompatActivity() {
         b = ActivityTrainerBinding.inflate(layoutInflater)
         setContentView(b.root)
         val auth = FirebaseAuth.getInstance()
-        toggle = ActionBarDrawerToggle(this, b.drawerTrainerLayout, R.string.open, R.string.close)
-        b.drawerTrainerLayout.addDrawerListener(toggle)
+        toggle = ActionBarDrawerToggle(this, b.drawerLayout, R.string.open, R.string.close)
+        b.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, MainPageStudentFragment())
+        supportFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment())
             .commit()
         b.navView.setNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.profile -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, MainPageStudentFragment()).addToBackStack(null)
-                        .commit()
-                }
                 R.id.messenger -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, MessengerFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.ration -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, StatisticRationFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, StatisticRationFragment()).addToBackStack(null)
                         .commit()
 
                 }
                 R.id.settings -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, SettingsFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, SettingsFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.exercises -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, ExercisesFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.addexercises -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, ExercisesAddFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesAddFragment()).addToBackStack(null)
                         .commit()
                     Toast.makeText(applicationContext, "Вход в Добавить упражнение. Функция для тренера", Toast.LENGTH_SHORT).show()
                 }
                 R.id.exercise_treiner -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.user_trainer_container, ExercisesForTrainerFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesForTrainerFragment()).addToBackStack(null)
                         .commit()
                     Toast.makeText(applicationContext, "Вход в Добавить упражнение. Функция для тренера", Toast.LENGTH_SHORT).show()
                 }
