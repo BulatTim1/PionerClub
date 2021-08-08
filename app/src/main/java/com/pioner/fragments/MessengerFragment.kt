@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,10 +36,10 @@ class MessengerFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val root = inflater.inflate(R.layout.fragment_messenger, container, false)
-//        val b: FragmentMessengerBinding = FragmentMessengerBinding.inflate(inflater)
         val btn: Button = root.findViewById(R.id.msgSend)
         val msg: EditText = root.findViewById(R.id.msgText)
         val msgList: RecyclerView = root.findViewById(R.id.msgs)
+        val title: TextView = root.findViewById(R.id.trennerName)
         val shpref = requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
         val db = Firebase.database
         uid = shpref.getString("uid", "").toString()
@@ -60,6 +61,7 @@ class MessengerFragment : Fragment() {
         db.getReference("users/${uidTrainer}/name").get().addOnSuccessListener {
             trainerName = it.value.toString()
         }
+        title.text = trainerName
         btn.setOnClickListener {
             if (msg.text.isEmpty()) Toast.makeText(context, "Пустое сообщение", Toast.LENGTH_LONG).show()
             else {
