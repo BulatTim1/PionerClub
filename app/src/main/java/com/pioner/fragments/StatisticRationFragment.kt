@@ -25,7 +25,7 @@ class StatisticRationFragment : Fragment() {
     ): View? {
         val root: View = inflater.inflate(R.layout.fragment_statistic_ration, container, false)
         RationRecyclerView = root.findViewById(R.id.statictic_recycler)
-        val addRation : Button = root.findViewById(R.id.go_ration_add_btn)
+        var addRation : Button = root.findViewById(R.id.go_ration_add_btn)
         val ration_statistic: RecyclerView.LayoutManager = LinearLayoutManager(context)
         RationRecyclerView.setLayoutManager(ration_statistic)
         RationRecyclerView.setHasFixedSize(true)

@@ -6,10 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.DatabaseReference
 import com.pioner.R
+
+private lateinit var dbref: DatabaseReference
 
 class MainPageStudentFragment : Fragment() {
 
@@ -27,8 +31,20 @@ class MainPageStudentFragment : Fragment() {
         val exercDownBtn: Button = root.findViewById(R.id.exerc_main_btn)
         val exercTopBtn: Button = root.findViewById(R.id.continue_exercise_btn)
         val messengerTopBtn: Button = root.findViewById(R.id.messenger_btn)
+        val massView : TextView = root.findViewById(R.id.massMainView)
+        val heightView : TextView = root.findViewById(R.id.heightMainView)
+        val calView : TextView = root.findViewById(R.id.ccalMainView)
+        var tipDay : TextView = root.findViewById(R.id.tipDayTextView)
+        var MassImage : ImageView = root.findViewById(R.id.MassImageView)
+
+
+//        val rationList : List<Int> = getRation()
+//        massView.text = rationList[1].toString()
+//        heightView.text = rationList[2].toString()
+//        calView.text = rationList[3].toString()
+
         diaryDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
                 .commit()
         }
         diaryTopBtn.setOnClickListener{
@@ -67,5 +83,40 @@ class MainPageStudentFragment : Fragment() {
         Bar.progress = progress
         Text.text = "Завершено упражнений $strProgress"
     }
+
+//    private fun getRation(): List<Int> {
+//        val uid: String =
+//            requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+//                .getString("uid", "")
+//                .toString()
+//        dbref = FirebaseDatabase.getInstance().getReference("users").child(uid).child("measurements")
+//
+//        var RationArrayList = arrayListOf<MeasurementClass>();
+//
+//        dbref.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//                if(snapshot.exists()) {
+//                    for (userSnapshot in snapshot.children) {
+//                        val measur = userSnapshot.getValue(MeasurementClass::class.java)
+//                        RationArrayList.add(measur!!)
+//
+//                    }
+//                }
+//            }
+//            override fun onCancelled(error: DatabaseError) {
+//            }
+//        })
+//
+//        val mass: Int = RationArrayList.last().mass - RationArrayList.first().mass
+//        val height: Int = RationArrayList.last().height - RationArrayList.first().height
+//        var cal: Int = 0
+//        for ((index, element) in RationArrayList.withIndex()) {
+//            cal += element.calories
+//        }
+//        cal /= RationArrayList.size
+//
+//        return listOf(mass, height, cal)
+//
+//    }
 
 }
