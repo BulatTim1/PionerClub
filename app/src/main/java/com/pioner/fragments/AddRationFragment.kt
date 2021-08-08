@@ -41,6 +41,10 @@ class AddRationFragment : Fragment() {
             if (day.toInt() < 10) {
                 day = "0$day"
             }
+            val uid: String =
+                requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
+                    .getString("uid", "")
+                    .toString()
             saveRation.setOnClickListener {
                 val ldt = "$day/$month/$year"
                 if (mass.text.isEmpty() || height.text.isEmpty() || calories.text.isEmpty()) {
@@ -54,10 +58,6 @@ class AddRationFragment : Fragment() {
                 } else
                 {
                     val measurement = MeasurementClass( mass.text.toString().toInt(),  height.text.toString().toInt(),  calories.text.toString().toInt(), ldt )
-                    val uid: String =
-                        requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-                            .getString("uid", "")
-                            .toString()
                     if (uid != "") {
                         table.child("users").child(uid).child("measurements").push()
                             .setValue(measurement).addOnSuccessListener {

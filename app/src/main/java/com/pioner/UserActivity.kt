@@ -61,11 +61,17 @@ class UserActivity : AppCompatActivity() {
                         .commit()
                     Toast.makeText(applicationContext, "Вход в Добавить упражнение. Функция для тренера", Toast.LENGTH_SHORT).show()
                 }
+                R.id.exercise_treiner -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesForTrainerFragment()).addToBackStack(null)
+                        .commit()
+                    Toast.makeText(applicationContext, "Вход в Добавить упражнение. Функция для тренера", Toast.LENGTH_SHORT).show()
+                }
                 R.id.logout -> {
                     auth.signOut()
                     getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").apply()
                     startActivity(Intent(this, StartActivity::class.java))
                 }
+
 
             }
             true

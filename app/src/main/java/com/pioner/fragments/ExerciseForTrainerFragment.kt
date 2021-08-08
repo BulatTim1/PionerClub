@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 import com.pioner.Exercises
-import com.pioner.ExercisesAdapter
+import com.pioner.ExercisesTrainerAdapter
 import com.pioner.R
 
-class ExercisesFragment : Fragment() {
+class ExercisesForTrainerFragment : Fragment() {
     private lateinit var dbref : DatabaseReference
     private lateinit var exercisesRecyclerView : RecyclerView
     private lateinit var userArrayList: ArrayList<Exercises>
@@ -22,8 +22,8 @@ class ExercisesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val root: View = inflater.inflate(R.layout.fragment_exercises, container, false)
-        exercisesRecyclerView = root.findViewById(R.id.exerciseslist)
+        val root: View = inflater.inflate(R.layout.fragment_exercise_for_trainer, container, false)
+        exercisesRecyclerView = root.findViewById(R.id.exercise_trainer_list)
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         exercisesRecyclerView.layoutManager = layoutManager
         exercisesRecyclerView.setHasFixedSize(true)
@@ -31,14 +31,13 @@ class ExercisesFragment : Fragment() {
         getUserData()
         return root
     }
-
     private fun getUserData() {
         val uid: String =
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 .getString("uid", "")
                 .toString()
-        dbref = FirebaseDatabase.getInstance().getReference("exercises").child("Standart")
-        //dbref = FirebaseDatabase.getInstance().getReference("exercises").child(uid)
+        //dbref = FirebaseDatabase.getInstance().getReference("exercises").child("Standart")
+        dbref = FirebaseDatabase.getInstance().getReference("exercises").child(uid)
         dbref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
@@ -46,7 +45,7 @@ class ExercisesFragment : Fragment() {
                         val exer = userSnapshot.getValue(Exercises::class.java)
                         userArrayList.add(exer!!)
                     }
-                    exercisesRecyclerView.adapter = ExercisesAdapter(userArrayList)
+                    exercisesRecyclerView.adapter = ExercisesTrainerAdapter(userArrayList)
                 }
             }
             override fun onCancelled(error: DatabaseError) {}

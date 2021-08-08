@@ -145,7 +145,7 @@
             android:id="@+id/physical_data_card"
             android:layout_width="338dp"
             android:layout_height="164dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="18dp"
             android:src="@drawable/blue_light_btn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +169,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:text="Cовет дня"
+            android:text="Cоветы дня"
             android:textColor="#767676"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/physical_data_card"
@@ -239,8 +239,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -322,14 +322,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/physical_data_card"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintStart_toStartOf="parent">
 
             <Button
                 android:id="@+id/diary_main_btn"

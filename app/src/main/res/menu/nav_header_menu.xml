@@ -17,6 +17,9 @@
         android:title="Упражнения"
         />
     <item
+        android:id="@+id/exercise_treiner"
+        android:title="Дать задание Ученику" />
+    <item
         android:id="@+id/addexercises"
         android:title="Добавить упражнения"
         />
