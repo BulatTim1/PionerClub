@@ -11,11 +11,12 @@ class StartActivity : AppCompatActivity() {
         if (intent.getBooleanExtra("EXIT", false)) {
             finish()
         }
-        if (getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "") != "") startActivity(
-            Intent(this, UserActivity::class.java)
-        ) else {
-            setContentView(R.layout.activity_start)
+        if (getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "") != "") {
+            val role = getSharedPreferences("user_pref", Context.MODE_PRIVATE).getInt("role", -1)
+            if (role == 0) startActivity(Intent(this, UserActivity::class.java))
+            else if (role == 1) startActivity(Intent(this, TrainerActivity::class.java))
         }
+        setContentView(R.layout.activity_start)
     }
 }
 

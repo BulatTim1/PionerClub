@@ -44,27 +44,27 @@ class MainTrainerPageFragment : Fragment() {
         getRation(massView, heightView, calView, massImage, heightImage, calImage)
         getTipDay(tipDay)
         diaryDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, StatisticRationFragment())
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
                 .commit()
         }
         diaryTopBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, StatisticRationFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).addToBackStack(null)
                 .commit()
         }
         settingDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, SettingsFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment()).addToBackStack(null)
                 .commit()
         }
         messDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
         exercDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment()).addToBackStack(null)
                 .commit()
         }
         messengerTopBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment()).addToBackStack(null)
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
 

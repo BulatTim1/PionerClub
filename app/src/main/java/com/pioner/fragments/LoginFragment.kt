@@ -15,6 +15,8 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import com.pioner.R
 import com.pioner.UserActivity
 
@@ -39,13 +41,11 @@ class LoginFragment : Fragment() {
                 auth.signInWithEmailAndPassword(email.text.toString(), pass.text.toString())
                     .addOnCompleteListener(requireActivity()) { task: Task<AuthResult> ->
                         if (task.isSuccessful) {
-                            val token: String = task.result!!.user!!.uid
-                            if (token.isNotEmpty()) {
-                                requireActivity().getSharedPreferences(
-                                    "user_pref",
-                                    Context.MODE_PRIVATE
-                                ).edit().putString("uid", token).apply()
-                                Log.d("Login", "login token: $token")
+                            val uid: String = task.result!!.user!!.uid
+                            if (uid.isNotEmpty()) {
+                                Log.d("Login", "login token: $uid")
+                                val role: Int = Firebase.database.getReference("users/${uid}/role").get().toString().toInt()
+                                requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().putString("uid", uid).putInt("role", role).apply()
                                 email.text.clear()
                                 pass.text.clear()
                                 Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()

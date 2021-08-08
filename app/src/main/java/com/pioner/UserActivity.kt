@@ -18,10 +18,9 @@ class UserActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val uid = getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
-        if (uid == "") {
-            startActivity(
-                Intent(this, StartActivity::class.java)
-            )
+        val role = getSharedPreferences("user_pref", Context.MODE_PRIVATE).getInt("role", -1)
+        if (uid == "" || role != 0) {
+            startActivity(Intent(this, StartActivity::class.java))
         }
         super.onCreate(savedInstanceState)
         b = ActivityUserBinding.inflate(layoutInflater)
@@ -68,7 +67,7 @@ class UserActivity : AppCompatActivity() {
                 }
                 R.id.logout -> {
                     auth.signOut()
-                    getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").apply()
+                    getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").remove("role").apply()
                     startActivity(Intent(this, StartActivity::class.java))
                 }
             }

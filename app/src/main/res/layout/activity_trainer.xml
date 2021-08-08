@@ -19,7 +19,7 @@
                     tools:layout="@layout/fragment_messenger" />-->
 
         <FrameLayout
-            android:id="@+id/trainer_container"
+            android:id="@+id/user_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,11 +18,8 @@ class TrainerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val uid = getSharedPreferences("user_pref", Context.MODE_PRIVATE).getString("uid", "")
-        if (uid == "") {
-            startActivity(
-                Intent(this, StartActivity::class.java)
-            )
-        }
+        val role = getSharedPreferences("user_pref", Context.MODE_PRIVATE).getInt("role", -1)
+        if (uid == "" || role != 1) startActivity(Intent(this, StartActivity::class.java))
         super.onCreate(savedInstanceState)
         b = ActivityTrainerBinding.inflate(layoutInflater)
         setContentView(b.root)
@@ -31,40 +28,40 @@ class TrainerActivity : AppCompatActivity() {
         b.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment())
+        supportFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment())
             .commit()
         b.navView.setNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.messenger -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, MessengerFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.ration -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, StatisticRationFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).addToBackStack(null)
                         .commit()
 
                 }
                 R.id.settings -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, SettingsFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.exercises -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment()).addToBackStack(null)
                         .commit()
                 }
                 R.id.addexercises -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesAddFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesAddFragment()).addToBackStack(null)
                         .commit()
                     Toast.makeText(applicationContext, "Вход в Добавить упражнение. Функция для тренера", Toast.LENGTH_SHORT).show()
                 }
                 R.id.exercise_treiner -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.trainer_container, ExercisesForTrainerFragment()).addToBackStack(null)
+                    supportFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesForTrainerFragment()).addToBackStack(null)
                         .commit()
                     Toast.makeText(applicationContext, "Вход в Добавить упражнение. Функция для тренера", Toast.LENGTH_SHORT).show()
                 }
                 R.id.logout -> {
                     auth.signOut()
-                    getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").apply()
+                    getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().remove("uid").remove("role").apply()
                     startActivity(Intent(this, StartActivity::class.java))
                 }
             }

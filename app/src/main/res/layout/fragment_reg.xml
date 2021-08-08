@@ -105,7 +105,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="Код (Для тренера)"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:textColorHint="#93ABD2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
