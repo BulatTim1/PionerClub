@@ -220,7 +220,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="4dp"
-                    android:text="80 кг"
+                    android:text="Пусто"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -229,8 +229,7 @@
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:src="@drawable/rise_ration" />
+                    android:layout_weight="1"/>
 
             </LinearLayout>
 
@@ -255,7 +254,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="4dp"
-                    android:text="170 см"
+                    android:text="Пусто"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -264,8 +263,7 @@
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:src="@drawable/downgrade_ration" />
+                    android:layout_weight="1" />
 
             </LinearLayout>
 
@@ -289,7 +287,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="4dp"
-                    android:text="3000 ккал"
+                    android:text="Пусто"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -298,8 +296,7 @@
                     android:layout_width="10dp"
                     android:layout_height="10dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:src="@drawable/without_changes_ration" />
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </LinearLayout>

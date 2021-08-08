@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,15 +25,16 @@ class ExercisesFragment : Fragment() {
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_exercises, container, false)
         exercisesRecyclerView = root.findViewById(R.id.exerciseslist)
+        val execTextView : TextView = root.findViewById(R.id.exercTextView)
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         exercisesRecyclerView.layoutManager = layoutManager
         exercisesRecyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf()
-        getUserData()
+        getUserData(execTextView)
         return root
     }
 
-    private fun getUserData() {
+    private fun getUserData(execTextView : TextView) {
         val uid: String =
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 .getString("uid", "")
@@ -47,6 +49,9 @@ class ExercisesFragment : Fragment() {
                         userArrayList.add(exer!!)
                     }
                     exercisesRecyclerView.adapter = ExercisesAdapter(userArrayList)
+                }
+                if(userArrayList.isEmpty()){
+                    execTextView.visibility = View.VISIBLE
                 }
             }
             override fun onCancelled(error: DatabaseError) {}

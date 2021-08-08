@@ -35,14 +35,16 @@
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_confirmation_registration.xml" value="0.40764331210191085" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_creating_new_password.xml" value="0.25" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_exercise_for_trainer.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_exercises.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_exercises.xml" value="0.33" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_exercises_add.xml" value="0.2" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_login.xml" value="0.5" />
-        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_main_page_student.xml" value="0.75" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_main_page_student.xml" value="0.3584758942457232" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_ration_add.xml" value="0.22" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_reg.xml" value="0.33" />
-        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_statistic_ration.xml" value="0.48020833333333335" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/fragment_statistic_ration.xml" value="0.25" />
         <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/frame_measurement.xml" value="0.5" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/layout/nav_header.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/necha/AndroidStudioProjects/PionerClub/app/src/main/res/menu/nav_header_menu.xml" value="0.33" />
       </map>
     </option>
   </component>

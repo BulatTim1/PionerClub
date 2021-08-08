@@ -101,36 +101,43 @@ class MainPageStudentFragment : Fragment() {
                         RationArrayList.add(measur!!)
 
                     }
-                    val mass: Int = RationArrayList.last().mass - RationArrayList.first().mass
-                    val height: Int = RationArrayList.last().height - RationArrayList.first().height
-                    var cal: Int = 0
-                    for ((index, element) in RationArrayList.withIndex()) {
-                        cal += element.calories
+                    if(RationArrayList.isNotEmpty()){
+                        val mass: Int? = RationArrayList.last().mass - RationArrayList.first().mass
+                        val height: Int? = RationArrayList.last().height - RationArrayList.first().height
+                        var cal: Int = 0
+                        for ((index, element) in RationArrayList.withIndex()) {
+                            cal += element.calories
+                        }
+                        cal /= RationArrayList.size
+                        massView.text = "$mass кг"
+                        heightView.text = "$height см"
+                        calView.text = "$cal ккал"
+                        if (mass != null) {
+                            when {
+                                mass > 0 -> {
+                                    massImage.setImageResource(R.drawable.rise_ration);
+                                    massView.text = "+$mass кг"
+                                }
+                                mass < 0 -> {
+                                    massImage.setImageResource(R.drawable.downgrade_ration);
+                                }
+                                else -> massImage.setImageResource(R.drawable.without_changes_ration)
+                            }
+                        };
+                        if (height != null) {
+                            when {
+                                height > 0 -> {
+                                    heightImage.setImageResource(R.drawable.rise_ration);
+                                    heightView.text = "+$height см"
+                                }
+                                height < 0 -> {
+                                    heightImage.setImageResource(R.drawable.downgrade_ration);
+                                }
+                                else -> heightImage.setImageResource(R.drawable.without_changes_ration)
+                            }
+                        };
                     }
-                    cal /= RationArrayList.size
-                    massView.text = "$mass кг"
-                    heightView.text = "$height см"
-                    calView.text = "$cal ккал"
-                    when {
-                        mass > 0 -> {
-                            massImage.setImageResource(R.drawable.rise_ration);
-                            massView.text = "+ $mass кг"
-                        }
-                        mass < 0 -> {
-                            massImage.setImageResource(R.drawable.downgrade_ration);
-                        }
-                        else -> massImage.setImageResource(R.drawable.without_changes_ration)
-                    };
-                    when {
-                        height > 0 -> {
-                            heightImage.setImageResource(R.drawable.rise_ration);
-                            heightView.text = "+ $height см"
-                        }
-                        height < 0 -> {
-                            heightImage.setImageResource(R.drawable.downgrade_ration);
-                        }
-                        else -> heightImage.setImageResource(R.drawable.without_changes_ration)
-                    };
+
                 }
             }
             override fun onCancelled(error: DatabaseError) {
@@ -164,5 +171,4 @@ class MainPageStudentFragment : Fragment() {
         })
 
     }
-
 }
