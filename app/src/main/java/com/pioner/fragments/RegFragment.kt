@@ -34,8 +34,8 @@ class RegFragment : Fragment() {
         val lastname: EditText = root.findViewById(R.id.reg_lastname)
         val email: EditText = root.findViewById(R.id.reg_email)
         val pass: EditText = root.findViewById(R.id.reg_pass)
+        val regcode: EditText = root.findViewById(R.id.trainer_recode)
         val reg: Button = root.findViewById(R.id.reg_cont)
-        val regcode: Button = root.findViewById(R.id.trainer_regcode)
         val toLog: Button = root.findViewById(R.id.return_log_btn)
         val auth = FirebaseAuth.getInstance()
         val table: DatabaseReference =
@@ -51,6 +51,8 @@ class RegFragment : Fragment() {
                 Toast.makeText(context, "Неправильный email", Toast.LENGTH_LONG).show()
             } else if (pass.text.length < 8) {
                 Toast.makeText(context, "Неверный пароль", Toast.LENGTH_LONG).show()
+            } else if(regcode.text.toString() != "123"){
+                Toast.makeText(context, "Неверный пароль тренера", Toast.LENGTH_LONG).show()
             } else {
                 auth.createUserWithEmailAndPassword(email.text.toString(), pass.text.toString())
                     .addOnCompleteListener(
