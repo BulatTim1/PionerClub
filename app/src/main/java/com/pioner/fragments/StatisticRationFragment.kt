@@ -32,7 +32,7 @@ class StatisticRationFragment : Fragment() {
         RationArrayList = arrayListOf<MeasurementClass>()
         getRationData()
         addRation.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment()).commit()
+            parentFragmentManager.beginTransaction().replace(R.id.user_container, AddRationFragment()).addToBackStack(null).commit()
         }
         return root
     }
