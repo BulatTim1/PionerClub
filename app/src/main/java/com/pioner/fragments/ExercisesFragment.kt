@@ -40,7 +40,6 @@ class ExercisesFragment : Fragment() {
                 .getString("uid", "")
                 .toString()
         dbref = FirebaseDatabase.getInstance().getReference("exercises").child("Standart")
-        //dbref = FirebaseDatabase.getInstance().getReference("exercises").child(uid)
         dbref.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){

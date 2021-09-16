@@ -45,7 +45,8 @@ class LoginFragment : Fragment() {
                             if (uid.isNotEmpty()) {
                                 Log.d("Login", "login token: $uid")
                                 val role: Int = Firebase.database.getReference("users/${uid}/role").get().toString().toInt()
-                                requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().putString("uid", uid).putInt("role", role).apply()
+                                val uidTrainer: String = Firebase.database.getReference("users/${uid}/uid_trainer").get().toString()
+                                requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE).edit().putString("uid", uid).putInt("role", role).putString("uid_trainer", uidTrainer).apply()
                                 email.text.clear()
                                 pass.text.clear()
                                 Toast.makeText(context, "Вход", Toast.LENGTH_LONG).show()

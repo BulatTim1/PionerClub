@@ -99,7 +99,7 @@ class MainTrainerPageFragment : Fragment() {
                     if(rationArrayList.isNotEmpty()){
                         val mass: Int = rationArrayList.last().mass - rationArrayList.first().mass
                         val height: Int = rationArrayList.last().height - rationArrayList.first().height
-                        var cal: Int = 0
+                        var cal = 0
                         for (element in rationArrayList) {
                             cal += element.calories
                         }
@@ -107,29 +107,25 @@ class MainTrainerPageFragment : Fragment() {
                         massView.text = "$mass кг"
                         heightView.text = "$height см"
                         calView.text = "$cal ккал"
-                        if (mass != null) {
-                            when {
-                                mass > 0 -> {
-                                    massImage.setImageResource(R.drawable.rise_ration)
-                                    massView.text = "+$mass кг"
-                                }
-                                mass < 0 -> {
-                                    massImage.setImageResource(R.drawable.downgrade_ration)
-                                }
-                                else -> massImage.setImageResource(R.drawable.without_changes_ration)
+                        when {
+                            mass > 0 -> {
+                                massImage.setImageResource(R.drawable.rise_ration)
+                                massView.text = "+$mass кг"
                             }
+                            mass < 0 -> {
+                                massImage.setImageResource(R.drawable.downgrade_ration)
+                            }
+                            else -> massImage.setImageResource(R.drawable.without_changes_ration)
                         }
-                        if (height != null) {
-                            when {
-                                height > 0 -> {
-                                    heightImage.setImageResource(R.drawable.rise_ration)
-                                    heightView.text = "+$height см"
-                                }
-                                height < 0 -> {
-                                    heightImage.setImageResource(R.drawable.downgrade_ration)
-                                }
-                                else -> heightImage.setImageResource(R.drawable.without_changes_ration)
+                        when {
+                            height > 0 -> {
+                                heightImage.setImageResource(R.drawable.rise_ration)
+                                heightView.text = "+$height см"
                             }
+                            height < 0 -> {
+                                heightImage.setImageResource(R.drawable.downgrade_ration)
+                            }
+                            else -> heightImage.setImageResource(R.drawable.without_changes_ration)
                         }
                     }
 
