@@ -16,23 +16,15 @@ import com.pioner.MeasurementClass
 import com.pioner.R
 import java.util.*
 
-private lateinit var dbref: DatabaseReference
 
 class MainPageStudentFragment : Fragment() {
+    private lateinit var dbref: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         val root: View = inflater.inflate(R.layout.fragment_main_page_student, container, false)
-        if (requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
-                .getString("uid_trainer", "") == ""
-        ) {
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.user_container, SetTrainerFragment())
-                .commit()
-            return root
-        }
         val progressBar: ProgressBar = root.findViewById(R.id.ProgressCircleBar)
         val progressText: TextView = root.findViewById(R.id.ProgressCircleText)
         val diaryDownBtn: Button = root.findViewById(R.id.diary_main_btn)

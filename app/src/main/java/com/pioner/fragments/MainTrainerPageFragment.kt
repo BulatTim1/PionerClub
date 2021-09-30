@@ -16,9 +16,9 @@ import com.pioner.MeasurementClass
 import com.pioner.R
 import java.util.*
 
-private lateinit var dbref: DatabaseReference
 
 class MainTrainerPageFragment : Fragment() {
+    private lateinit var dbref: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,38 +33,44 @@ class MainTrainerPageFragment : Fragment() {
         val messDownBtn: Button = root.findViewById(R.id.mess_main_btn)
         val exercDownBtn: Button = root.findViewById(R.id.exerc_main_btn)
         val messengerTopBtn: Button = root.findViewById(R.id.messenger_btn)
-        val massView : TextView = root.findViewById(R.id.massMainView)
-        val heightView : TextView = root.findViewById(R.id.heightMainView)
-        val calView : TextView = root.findViewById(R.id.ccalMainView)
-        val tipDay : TextView = root.findViewById(R.id.tipDayTextView)
-        val massImage : ImageView = root.findViewById(R.id.MassImageView)
-        val heightImage : ImageView = root.findViewById(R.id.HeightImageView)
-        val calImage : ImageView = root.findViewById(R.id.CcalImageView)
+        val massView: TextView = root.findViewById(R.id.massMainView)
+        val heightView: TextView = root.findViewById(R.id.heightMainView)
+        val calView: TextView = root.findViewById(R.id.ccalMainView)
+        val tipDay: TextView = root.findViewById(R.id.tipDayTextView)
+        val massImage: ImageView = root.findViewById(R.id.MassImageView)
+        val heightImage: ImageView = root.findViewById(R.id.HeightImageView)
+        val calImage: ImageView = root.findViewById(R.id.CcalImageView)
 
         getRation(massView, heightView, calView, massImage, heightImage, calImage)
         getTipDay(tipDay)
-        diaryDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment())
+        diaryDownBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.user_container, StatisticRationFragment())
                 .commit()
         }
-        diaryTopBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, StatisticRationFragment()).addToBackStack(null)
+        diaryTopBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.user_container, StatisticRationFragment()).addToBackStack(null)
                 .commit()
         }
-        settingDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, SettingsFragment()).addToBackStack(null)
+        settingDownBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.user_container, SettingsFragment()).addToBackStack(null)
                 .commit()
         }
-        messDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
+        messDownBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
-        exercDownBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, ExercisesFragment()).addToBackStack(null)
+        exercDownBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.user_container, ExercisesFragment()).addToBackStack(null)
                 .commit()
         }
-        messengerTopBtn.setOnClickListener{
-            parentFragmentManager.beginTransaction().replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
+        messengerTopBtn.setOnClickListener {
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.user_container, MessengerFragment()).addToBackStack(null)
                 .commit()
         }
 
@@ -74,31 +80,44 @@ class MainTrainerPageFragment : Fragment() {
 
 
     @SuppressLint("SetTextI18n")
-    private fun setProgress(progress: Int, Bar : ProgressBar, Text : TextView) { //можно вставлять значения от 0 до 100
+    private fun setProgress(
+        progress: Int,
+        Bar: ProgressBar,
+        Text: TextView
+    ) { //можно вставлять значения от 0 до 100
         val strProgress = "$progress %"
         Bar.progress = progress
         Text.text = "Завершено упражнений $strProgress"
     }
 
-    private fun getRation(massView : TextView, heightView : TextView, calView : TextView, massImage : ImageView, heightImage : ImageView, calImage : ImageView) {
+    private fun getRation(
+        massView: TextView,
+        heightView: TextView,
+        calView: TextView,
+        massImage: ImageView,
+        heightImage: ImageView,
+        calImage: ImageView
+    ) {
         val rationArrayList = arrayListOf<MeasurementClass>()
         val uid: String =
             requireActivity().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
                 .getString("uid", "")
                 .toString()
-        dbref = FirebaseDatabase.getInstance().getReference("users").child(uid).child("measurements")
+        dbref =
+            FirebaseDatabase.getInstance().getReference("users").child(uid).child("measurements")
         dbref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()) {
+                if (snapshot.exists()) {
                     for (userSnapshot in snapshot.children) {
                         val measur = userSnapshot.getValue(MeasurementClass::class.java)
                         rationArrayList.add(measur!!)
 
                     }
-                    if(rationArrayList.isNotEmpty()){
+                    if (rationArrayList.isNotEmpty()) {
                         val mass: Int = rationArrayList.last().mass - rationArrayList.first().mass
-                        val height: Int = rationArrayList.last().height - rationArrayList.first().height
+                        val height: Int =
+                            rationArrayList.last().height - rationArrayList.first().height
                         var cal = 0
                         for (element in rationArrayList) {
                             cal += element.calories
@@ -131,19 +150,20 @@ class MainTrainerPageFragment : Fragment() {
 
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
             }
         })
 
     }
 
-    private fun getTipDay( tipDay : TextView) {
+    private fun getTipDay(tipDay: TextView) {
         val tipArrayList = arrayListOf<String>()
         dbref = FirebaseDatabase.getInstance().getReference("tips")
         dbref.addValueEventListener(object : ValueEventListener {
             @SuppressLint("SetTextI18n")
             override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()) {
+                if (snapshot.exists()) {
                     for (userSnapshot in snapshot.children) {
                         val tip = userSnapshot.getValue(String()::class.java)
                         tipArrayList.add(tip!!)
@@ -153,6 +173,7 @@ class MainTrainerPageFragment : Fragment() {
                     tipDay.text = random
                 }
             }
+
             override fun onCancelled(error: DatabaseError) {
             }
         })
